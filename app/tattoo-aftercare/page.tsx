@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ButtonLink } from "@/components/ButtonLink";
+import { FlashIcon } from "@/components/FlashIcon";
+import { Eyebrow, PageHero, Section } from "@/components/Section";
 import { pageMetadata } from "@/lib/seo";
 
 // TODO(client): general aftercare guidance drafted for the demo (seo.md §B8.3).
@@ -54,62 +55,76 @@ const STAGES = [
 
 export default function AftercarePage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 md:py-16">
-      <Breadcrumbs items={[{ name: "Tattoos", href: "/tattoos" }, { name: "Tattoo aftercare", href: "/tattoo-aftercare" }]} />
+    <>
+      <PageHero
+        crumbs={[
+          { name: "Tattoos", href: "/tattoos" },
+          { name: "Tattoo aftercare", href: "/tattoo-aftercare" },
+        ]}
+        eyebrow="Aftercare"
+        title="Tattoo Aftercare Guide"
+      >
+        <p>
+          Good tattoo aftercare makes a real difference to how your tattoo heals and how it looks for years to come.
+          Here&apos;s how the team at 666 Tattoo in Lawnton recommends looking after your new tattoo, stage by stage. Always
+          follow any specific instructions your artist gives you on the day.
+        </p>
+      </PageHero>
 
-      <h1 className="mt-6 font-display text-5xl md:text-6xl">Tattoo Aftercare Guide</h1>
-      <p className="mt-5 text-lg leading-relaxed text-bone/85">
-        Good tattoo aftercare makes a real difference to how your tattoo heals and how it looks for years to come. Here&apos;s
-        how the team at 666 Tattoo in Lawnton recommends looking after your new tattoo, stage by stage. Always follow any
-        specific instructions your artist gives you on the day.
-      </p>
+      <Section tone="light" aria-label="Aftercare, stage by stage">
+        <ol className="grid gap-4 md:grid-cols-2">
+          {STAGES.map((s, i) => (
+            <li key={s.when} className="reveal rounded-2xl bg-ink-2 p-6 md:p-8">
+              <p className="font-display text-5xl text-brass">{String(i + 1).padStart(2, "0")}</p>
+              <h2 className="mt-3 font-display text-3xl">{s.when}</h2>
+              <ul className="mt-5 list-disc space-y-3 pl-5 leading-relaxed text-bone/85 marker:text-blood-bright">
+                {s.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-      <ol className="mt-12 space-y-12">
-        {STAGES.map((s, i) => (
-          <li key={s.when}>
-            <h2 className="flex items-baseline gap-4 font-display text-3xl">
-              <span className="text-brass">{String(i + 1).padStart(2, "0")}</span>
-              {s.when}
+      <Section>
+        <div className="grid gap-4 md:grid-cols-2">
+          <section aria-labelledby="warning" className="reveal rounded-3xl bg-blood p-6 text-white md:p-8">
+            <FlashIcon name="heart" className="size-10" />
+            <h2 id="warning" className="mt-4 font-display text-3xl">
+              When to get help
             </h2>
-            <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-bone/85 marker:text-blood-bright">
-              {s.steps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ol>
+            <p className="mt-3 leading-relaxed text-white/90">
+              Redness and tenderness that get worse after the first few days, spreading heat or swelling, pus, a bad smell or
+              a fever can be signs of infection. See a doctor straight away, then let us know.
+            </p>
+          </section>
 
-      <section aria-labelledby="warning" className="mt-14 border-l-4 border-blood bg-ink-2 p-6">
-        <h2 id="warning" className="font-display text-2xl">
-          When to get help
-        </h2>
-        <p className="mt-3 leading-relaxed text-bone/85">
-          Redness and tenderness that get worse after the first few days, spreading heat or swelling, pus, a bad smell or a
-          fever can be signs of infection. See a doctor straight away, then let us know.
-        </p>
-      </section>
-
-      <section aria-labelledby="products" className="mt-14">
-        <h2 id="products" className="font-display text-2xl">
-          Aftercare products in store
-        </h2>
-        <p className="mt-3 leading-relaxed text-bone/85">
-          We stock quality tattoo aftercare products at our Lawnton shop, so you can pick up everything you need on the day
-          of your appointment. Got questions?{" "}
-          <Link href="/faq" className="text-brass underline">
-            Read our tattoo FAQs
-          </Link>{" "}
-          or{" "}
-          <Link href="/contact-us" className="text-brass underline">
-            get in touch
-          </Link>
-          .
-        </p>
-        <div className="mt-8">
-          <ButtonLink href="/tattoos">Explore our tattoo styles</ButtonLink>
+          <section aria-labelledby="products" className="reveal rounded-3xl border border-bone/10 bg-ink-2 p-6 md:p-8">
+            <Eyebrow>In store</Eyebrow>
+            <h2 id="products" className="mt-2 font-display text-3xl">
+              Aftercare products
+            </h2>
+            <p className="mt-3 leading-relaxed text-bone/85">
+              We stock quality tattoo aftercare products at our Lawnton shop, so you can pick up everything you need on the
+              day of your appointment. Got questions?{" "}
+              <Link href="/faq" className="text-brass underline">
+                Read our tattoo FAQs
+              </Link>{" "}
+              or{" "}
+              <Link href="/contact-us" className="text-brass underline">
+                get in touch
+              </Link>
+              .
+            </p>
+            <div className="mt-6">
+              <ButtonLink href="/tattoos" variant="outline">
+                Explore our tattoo styles
+              </ButtonLink>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </Section>
+    </>
   );
 }

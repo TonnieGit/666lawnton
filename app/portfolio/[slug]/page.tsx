@@ -68,7 +68,7 @@ export default async function ArtistPage({ params }: Props) {
       />
 
       <div className="mt-6 grid gap-10 md:grid-cols-[320px_1fr] md:items-start">
-        <div className="relative aspect-[4/5] overflow-hidden bg-ink-3">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink-3">
           <WixImage
             image={artist.profileImage}
             alt={`${artist.title}, tattoo artist at 666 Tattoo Lawnton`}
@@ -79,11 +79,12 @@ export default async function ArtistPage({ params }: Props) {
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-brass">Tattoo artist · Lawnton</p>
-          <h1 className="mt-2 font-display text-5xl md:text-6xl">{artist.title}</h1>
+          <h1 className="mt-2 font-display text-5xl md:text-7xl">{artist.title}</h1>
+          {artist.experience && <p className="mt-3 text-sm uppercase tracking-[0.2em] text-muted">{artist.experience}</p>}
           {artist.specialties.length > 0 && (
             <ul className="mt-5 flex flex-wrap gap-2" aria-label="Specialties">
               {artist.specialties.map((s) => (
-                <li key={s} className="border border-brass/40 px-3 py-1 text-sm text-brass">
+                <li key={s} className="rounded-full border border-brass/40 px-3 py-1 text-sm text-brass">
                   {s}
                 </li>
               ))}
@@ -118,7 +119,7 @@ export default async function ArtistPage({ params }: Props) {
       </div>
 
       {artist.gallery.length > 0 && (
-        <section aria-labelledby="work" className="mt-16">
+        <section aria-labelledby="work" className="mt-20">
           <h2 id="work" className="font-display text-3xl">
             Tattoos by {artist.title}
           </h2>

@@ -68,6 +68,24 @@ body {
 }
 
 /*
+  Video hero. The section is a size container; the 16:9 media box (poster and
+  player alike) is oversized so it always covers it AND crops off the black
+  letterbox bars baked into the source clip (~10% top and bottom): 1 / 0.78
+  ≈ 130% of the height, or 58% of the width (i.e. 103% at 16:9), whichever is larger.
+*/
+.hero-video {
+  container-type: size;
+}
+.hero-media-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  height: max(130cqh, 58cqw);
+  width: max(231cqh, 103cqw);
+}
+
+/*
   Scroll motion. CSS scroll-driven animations only: no JS, off the main thread
   in Chromium. Without support, or with reduced motion, everything below is
   skipped and content renders static and fully visible. Never put these on

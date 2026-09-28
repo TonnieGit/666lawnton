@@ -50,7 +50,7 @@ export function ContactForm({ successMessage }: { successMessage: string }) {
 
   if (sent) {
     return (
-      <div role="status" className="border border-brass/40 bg-ink-2 p-8">
+      <div role="status" className="rounded-2xl border border-brass/40 bg-ink p-8">
         <p className="font-display text-2xl">Message received</p>
         <p className="mt-3 text-bone/85">{successMessage}</p>
         <p className="mt-4 text-xs text-muted">(Demo: messages aren’t sent yet.)</p>
@@ -58,7 +58,7 @@ export function ContactForm({ successMessage }: { successMessage: string }) {
     );
   }
 
-  const input = "mt-2 w-full rounded-xl border border-bone/30 bg-ink-2 px-4 py-3 aria-[invalid=true]:border-blood-bright";
+  const input = "mt-2 w-full rounded-xl border border-bone/30 bg-ink px-4 py-3 aria-[invalid=true]:border-blood-bright";
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">

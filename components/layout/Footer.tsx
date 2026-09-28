@@ -13,7 +13,7 @@ export async function Footer() {
   ].filter(Boolean) as { label: string; href: string }[];
 
   return (
-    <footer className="mt-24 border-t border-bone/10 bg-ink-2">
+    <footer className="border-t border-bone/10 bg-ink-2">
       {/* Extra bottom padding keeps the last line clear of the fixed booking pill. */}
       <div className="mx-auto max-w-6xl px-4 pb-28 pt-14">
         <div className="flex flex-col items-start justify-between gap-6 border-b border-bone/10 pb-10 md:flex-row md:items-center">

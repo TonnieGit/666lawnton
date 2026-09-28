@@ -1,8 +1,10 @@
 import { Fragment } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArtistTile } from "@/components/ArtistCard";
 import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
 import { FlashIcon, type FlashIconName } from "@/components/FlashIcon";
+import { HeroVideo } from "@/components/HeroVideo";
 import { JsonLd } from "@/components/JsonLd";
 import { BusinessDetails, MapEmbed } from "@/components/LocationBlock";
 import { ProductGrid } from "@/components/product/ProductCard";
@@ -27,6 +29,12 @@ export const metadata = pageMetadata({
     alt: "Vintage silver measure on the shelves at 666 Tattoo & Antiques, Lawnton",
   },
 });
+
+// Background clip for the hero, looped from 0s to `end`.
+// TODO(client): placeholder footage from another studio ("cinematic tattoo studio
+// @proyectodelirium" on YouTube). Replace with 666's own footage before launch;
+// ideally a self-hosted MP4 rather than a YouTube embed.
+const HERO_VIDEO = { id: "XIr1Zk83xH0", end: 54 };
 
 // What's under the roof, as a row of tiles (after Lesse's service cards). Photo tiles
 // alternate with solid ones. TODO(client): swap in their own photos if preferred.
@@ -71,32 +79,38 @@ export default async function Home() {
     <>
       <JsonLd data={websiteJsonLd(business)} />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* items-start: centring would nudge the image when the web font swaps in (CLS). */}
-        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-brass">666 Tattoo · Lawnton · North Brisbane</p>
-            <h1 className="mt-4 font-display text-5xl leading-[0.95] sm:text-6xl md:text-7xl">{hero?.title}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-bone/85">{hero?.body}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+      {/* Hero: full-bleed looping video behind the floating header (-mt-20 tucks it under). */}
+      <section className="hero-video relative -mt-20 flex h-svh max-h-[68rem] min-h-[36rem] items-end overflow-hidden bg-ink">
+        {/* Poster paints first and is the LCP; the player fades in over it once playing. */}
+        <div aria-hidden="true" className="hero-media-box">
+          <Image
+            src={`https://i.ytimg.com/vi_webp/${HERO_VIDEO.id}/maxresdefault.webp`}
+            alt=""
+            fill
+            unoptimized
+            loading="eager"
+            fetchPriority="high"
+            className="object-cover"
+          />
+        </div>
+        <HeroVideo videoId={HERO_VIDEO.id} end={HERO_VIDEO.end} />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-linear-to-t from-ink via-ink/45 to-ink/25 md:bg-linear-to-tr md:from-ink/95 md:via-ink/35 md:to-transparent"
+        />
+
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 md:pb-24">
+          <p className="text-xs uppercase tracking-[0.3em] text-brass">666 Tattoo · Lawnton · North Brisbane</p>
+          <h1 className="mt-4 max-w-4xl font-display text-6xl leading-[0.92] sm:text-7xl md:text-8xl">{hero?.title}</h1>
+          <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <p className="max-w-xl text-lg leading-relaxed text-bone/90">{hero?.body}</p>
+            <div className="flex shrink-0 flex-wrap gap-3">
               {hero?.ctaHref && <ButtonLink href={hero.ctaHref}>{hero.ctaLabel}</ButtonLink>}
               <ButtonLink href="/category/all-products" variant="outline">
                 Shop antiques
               </ButtonLink>
             </div>
           </div>
-          {hero?.image && (
-            <div className="relative aspect-[763/636] w-full overflow-hidden rounded-2xl">
-              <WixImage
-                image={hero.image}
-                alt="Colour hummingbird tattoo on a forearm, by 666 Tattoo Lawnton"
-                sizes="(min-width: 768px) 480px, 100vw"
-                priority
-                className="object-cover"
-              />
-            </div>
-          )}
         </div>
       </section>
 

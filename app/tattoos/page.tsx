@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ArtistTile } from "@/components/ArtistCard";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Eyebrow, PageHero, Section } from "@/components/Section";
 import { WixImage } from "@/components/WixImage";
 import { getArtists, getBusinessInfo } from "@/lib/data";
 import { pageMetadata, wixOgImage } from "@/lib/seo";
@@ -10,6 +11,8 @@ import { artistPath } from "@/lib/site";
 // full list of styles each artist offers, the booking process and deposit wording.
 
 const HERO = "wix:image://v1/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg#originWidth=763&originHeight=636";
+const COVER_UP =
+  "wix:image://v1/bfd742_51a5133483734990bf5477f6046e073b~mv2.jpg/bfd742_51a5133483734990bf5477f6046e073b~mv2.jpg#originWidth=1080&originHeight=1080";
 
 export const metadata = pageMetadata({
   title: "Custom & Cover-Up Tattoos, North Brisbane | 666 Tattoo",
@@ -52,66 +55,83 @@ const STYLES = [
   },
 ];
 
+const BOOKING = [
+  ["Send an enquiry", "Tell us your idea, the size, placement and any reference images. Say which artist you'd like, or let us match you."],
+  ["Consult and quote", "Your artist will talk through the design and give you a quote. Pop into the studio if you'd like to chat in person."],
+  ["Pay a deposit", "A deposit secures your appointment and covers drawing time. It comes off the final price."],
+  ["Get tattooed", "Bring photo ID (you must be 18+), eat beforehand and wear comfortable clothes. Then follow our aftercare guide."],
+];
+
+const MORE = [
+  ["/faq", "Tattoo FAQs: pricing, deposits, age rules and walk-ins"],
+  ["/tattoo-aftercare", "How to look after your new tattoo"],
+  ["/gift-vouchers", "Tattoo gift vouchers"],
+];
+
 export default async function TattoosPage() {
   const [artists, business] = await Promise.all([getArtists(), getBusinessInfo()]);
   const byslug = new Map(artists.map((a) => [a.slug, a]));
   const nearby = business.catchment.slice(0, 6);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
-      <Breadcrumbs items={[{ name: "Tattoos", href: "/tattoos" }]} />
-
-      <section className="mt-6 grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          <h1 className="font-display text-5xl leading-[0.95] md:text-6xl">Custom Tattoos in North Brisbane</h1>
-          <p className="mt-6 text-lg leading-relaxed text-bone/85">
-            666 Tattoo is a custom tattoo studio in Lawnton on Brisbane&apos;s northside. Our artists bring more than 30
-            years of combined experience in the Queensland tattoo industry, and every design is drawn for you, from
-            small first tattoos to full sleeves and back pieces.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-bone/85">
-            We&apos;re on Gympie Road, a short drive from {nearby.slice(0, -1).join(", ")} and {nearby.at(-1)}. Come in to
-            talk through your idea, see the artists&apos; work in person and find the right artist for your style.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/contact-us">Enquire about a tattoo</ButtonLink>
-            <ButtonLink href="/portfolio" variant="outline">
-              Browse artist portfolios
-            </ButtonLink>
+    <>
+      <PageHero
+        crumbs={[{ name: "Tattoos", href: "/tattoos" }]}
+        eyebrow="666 Tattoo · Lawnton"
+        title="Custom Tattoos in North Brisbane"
+        aside={
+          <div className="relative aspect-[763/636] w-full overflow-hidden rounded-2xl">
+            <WixImage
+              image={HERO}
+              alt="Colour hummingbird tattoo by 666 Tattoo Lawnton"
+              sizes="(min-width: 768px) 460px, 100vw"
+              priority
+              className="object-cover"
+            />
           </div>
-        </div>
-        <div className="relative aspect-[763/636] w-full overflow-hidden">
-          <WixImage
-            image={HERO}
-            alt="Colour hummingbird tattoo by 666 Tattoo Lawnton"
-            sizes="(min-width: 768px) 420px, 100vw"
-            priority
-            className="object-cover"
-          />
-        </div>
-      </section>
-
-      <section aria-labelledby="styles" className="mt-20">
-        <h2 id="styles" className="font-display text-4xl">
-          Japanese, Traditional &amp; More Tattoo Styles
-        </h2>
-        <p className="mt-4 max-w-3xl leading-relaxed text-bone/85">
-          Each artist has their own strengths, so tell us the style you&apos;re after and we&apos;ll match you with the
-          right person.
+        }
+      >
+        <p>
+          666 Tattoo is a custom tattoo studio in Lawnton on Brisbane&apos;s northside. Our artists bring more than 30 years
+          of combined experience in the Queensland tattoo industry, and every design is drawn for you, from small first
+          tattoos to full sleeves and back pieces.
         </p>
-        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <p>
+          We&apos;re on Gympie Road, a short drive from {nearby.slice(0, -1).join(", ")} and {nearby.at(-1)}. Come in to
+          talk through your idea, see the artists&apos; work in person and find the right artist for your style.
+        </p>
+        <div className="flex flex-wrap gap-3 pt-4">
+          <ButtonLink href="/contact-us">Enquire about a tattoo</ButtonLink>
+          <ButtonLink href="/portfolio" variant="outline">
+            Browse artist portfolios
+          </ButtonLink>
+        </div>
+      </PageHero>
+
+      <Section tone="light" aria-labelledby="styles">
+        <div className="reveal max-w-3xl">
+          <Eyebrow>Styles</Eyebrow>
+          <h2 id="styles" className="mt-2 font-display text-4xl md:text-5xl">
+            Japanese, Traditional &amp; More Tattoo Styles
+          </h2>
+          <p className="mt-4 leading-relaxed text-bone/85">
+            Each artist has their own strengths, so tell us the style you&apos;re after and we&apos;ll match you with the
+            right person.
+          </p>
+        </div>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {STYLES.map((s) => (
-            <li key={s.name} className="bg-ink-2 p-6">
+            <li key={s.name} className="reveal flex flex-col rounded-2xl bg-ink-2 p-6 md:p-7">
               <h3 className="font-display text-2xl">{s.name}</h3>
-              <p className="mt-3 leading-relaxed text-bone/80">{s.body}</p>
-              <p className="mt-4 text-sm text-muted">
+              <p className="mt-3 flex-1 leading-relaxed text-bone/80">{s.body}</p>
+              <p className="mt-5 text-sm text-muted">
                 Ask for{" "}
                 {s.artists
                   .map((slug) => byslug.get(slug))
                   .filter(Boolean)
                   .map((a, i, arr) => (
                     <span key={a!.slug}>
-                      <Link href={artistPath(a!.slug)} className="text-brass underline">
+                      <Link href={artistPath(a!.slug)} className="font-semibold text-brass hover:underline">
                         {a!.title}
                       </Link>
                       {i < arr.length - 2 ? ", " : i === arr.length - 2 ? " or " : ""}
@@ -121,113 +141,113 @@ export default async function TattoosPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
-      <section id="cover-ups" aria-labelledby="cover-ups-title" className="mt-20 scroll-mt-24 border-l-4 border-blood bg-ink-2 p-8 md:p-10">
-        <h2 id="cover-ups-title" className="font-display text-4xl">
-          Cover-Up Tattoos
-        </h2>
-        <div className="mt-5 max-w-3xl space-y-4 leading-relaxed text-bone/85">
-          <p>
-            Not every tattoo ages the way you hoped. Lines blur, colours fade, and sometimes the design just isn&apos;t
-            you any more. A good cover-up turns an old tattoo into something you&apos;re proud to show off.
-          </p>
-          <p>
-            Cover-ups are one of our specialities. Jimmy has spent more than 20 years reworking and covering tattoos, and
-            he&apos;ll plan a design that uses the shapes and dark areas of your existing ink rather than fighting them.
-            Some tattoos can be reworked and refreshed instead of fully covered, and he&apos;ll talk you through both
-            options.
-          </p>
-          <p>Send us a clear, well-lit photo of the tattoo you want covered, with its rough size, to get started.</p>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="/contact-us?artist=jimmy">Ask about a cover-up</ButtonLink>
-          <ButtonLink href={artistPath("jimmy")} variant="outline">
-            See Jimmy&apos;s work
-          </ButtonLink>
-        </div>
-      </section>
-
-      <div className="mt-20 grid gap-14 md:grid-cols-2">
-        <section aria-labelledby="booking">
-          <h2 id="booking" className="font-display text-3xl">
-            How Booking Works
-          </h2>
-          <ol className="mt-6 space-y-5">
-            {[
-              ["Send an enquiry", "Tell us your idea, the size, placement and any reference images. Say which artist you'd like, or let us match you."],
-              ["Consult and quote", "Your artist will talk through the design and give you a quote. Pop into the studio if you'd like to chat in person."],
-              ["Pay a deposit", "A deposit secures your appointment and covers drawing time. It comes off the final price."],
-              ["Get tattooed", "Bring photo ID (you must be 18+), eat beforehand and wear comfortable clothes. Then follow our aftercare guide."],
-            ].map(([t, d], i) => (
-              <li key={t} className="flex gap-4">
-                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-blood font-display text-white">{i + 1}</span>
-                <div>
-                  <h3 className="font-semibold">{t}</h3>
-                  <p className="mt-1 text-bone/80">{d}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section aria-labelledby="pricing">
-          <h2 id="pricing" className="font-display text-3xl">
-            Tattoo Pricing &amp; Deposits
-          </h2>
-          <div className="mt-6 space-y-4 leading-relaxed text-bone/85">
-            <p>
-              Every tattoo is quoted individually. Price depends on the size, the amount of detail, the placement on your
-              body and how many sessions it will take. Larger pieces like sleeves are usually done over several sessions.
-            </p>
-            <p>
-              We&apos;ll always give you a quote before you commit, and a deposit is needed to lock in your booking.
-            </p>
-            {business.licenceNumber && <p>Licensed tattoo studio, licence {business.licenceNumber}.</p>}
+      <Section id="cover-ups" aria-labelledby="cover-ups-title" className="scroll-mt-24">
+        <div className="reveal grid gap-2 rounded-3xl border border-bone/10 bg-ink-2 p-2 md:grid-cols-2">
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-ink-3">
+            <WixImage
+              image={COVER_UP}
+              alt="Before and after: an old name tattoo covered with a colour skull and roses, by Jimmy at 666 Tattoo Lawnton"
+              sizes="(min-width: 768px) 560px, 100vw"
+              className="object-cover"
+            />
           </div>
-          <ul className="mt-6 space-y-2 text-sm">
-            <li>
-              <Link href="/faq" className="text-brass underline">
-                Tattoo FAQs: pricing, deposits, age rules and walk-ins
-              </Link>
-            </li>
-            <li>
-              <Link href="/tattoo-aftercare" className="text-brass underline">
-                How to look after your new tattoo
-              </Link>
-            </li>
-            <li>
-              <Link href="/gift-vouchers" className="text-brass underline">
-                Tattoo gift vouchers
-              </Link>
-            </li>
-          </ul>
-        </section>
-      </div>
+          <div className="flex flex-col p-5 md:p-8">
+            <Eyebrow>Before and after</Eyebrow>
+            <h2 id="cover-ups-title" className="mt-2 font-display text-4xl md:text-5xl">
+              Cover-Up Tattoos
+            </h2>
+            <div className="mt-5 flex-1 space-y-4 leading-relaxed text-bone/85">
+              <p>
+                Not every tattoo ages the way you hoped. Lines blur, colours fade, and sometimes the design just isn&apos;t
+                you any more. A good cover-up turns an old tattoo into something you&apos;re proud to show off.
+              </p>
+              <p>
+                Cover-ups are one of our specialities. Jimmy has spent more than 20 years reworking and covering tattoos,
+                and he&apos;ll plan a design that uses the shapes and dark areas of your existing ink rather than fighting
+                them. Some tattoos can be reworked and refreshed instead of fully covered, and he&apos;ll talk you through
+                both options.
+              </p>
+              <p>Send us a clear, well-lit photo of the tattoo you want covered, with its rough size, to get started.</p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href="/contact-us?artist=jimmy">Ask about a cover-up</ButtonLink>
+              <ButtonLink href={artistPath("jimmy")} variant="outline">
+                See Jimmy&apos;s work
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </Section>
 
-      <section aria-labelledby="team" className="mt-20">
-        <h2 id="team" className="font-display text-3xl">
-          Our Lawnton Tattoo Artists
-        </h2>
-        <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <Section tone="light">
+        <div className="grid gap-14 md:grid-cols-2">
+          <section aria-labelledby="booking" className="reveal">
+            <Eyebrow>Four steps</Eyebrow>
+            <h2 id="booking" className="mt-2 font-display text-4xl">
+              How Booking Works
+            </h2>
+            <ol className="mt-8 space-y-3">
+              {BOOKING.map(([t, d], i) => (
+                <li key={t} className="flex gap-4 rounded-2xl bg-ink-2 p-5">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-blood font-display text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold">{t}</h3>
+                    <p className="mt-1 text-bone/80">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section aria-labelledby="pricing" className="reveal">
+            <Eyebrow>Quotes</Eyebrow>
+            <h2 id="pricing" className="mt-2 font-display text-4xl">
+              Tattoo Pricing &amp; Deposits
+            </h2>
+            <div className="mt-8 space-y-4 leading-relaxed text-bone/85">
+              <p>
+                Every tattoo is quoted individually. Price depends on the size, the amount of detail, the placement on
+                your body and how many sessions it will take. Larger pieces like sleeves are usually done over several
+                sessions.
+              </p>
+              <p>We&apos;ll always give you a quote before you commit, and a deposit is needed to lock in your booking.</p>
+              {business.licenceNumber && <p>Licensed tattoo studio, licence {business.licenceNumber}.</p>}
+            </div>
+            <ul className="mt-8 divide-y divide-bone/10 border-y border-bone/10 text-sm font-semibold">
+              {MORE.map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="group flex items-center justify-between gap-4 py-4 hover:text-brass">
+                    {label}
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </Section>
+
+      <Section aria-labelledby="team">
+        <div className="reveal">
+          <Eyebrow>The studio</Eyebrow>
+          <h2 id="team" className="mt-2 font-display text-4xl">
+            Our Lawnton Tattoo Artists
+          </h2>
+        </div>
+        <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           {artists.map((a) => (
-            <li key={a._id}>
-              <Link href={artistPath(a.slug)} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-ink-3">
-                  <WixImage
-                    image={a.profileImage}
-                    alt={`${a.title}, tattoo artist at 666 Tattoo Lawnton`}
-                    sizes="(min-width: 768px) 270px, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="mt-3 font-display text-xl group-hover:underline">{a.title}</h3>
-                <p className="text-sm text-muted">{a.specialties.slice(0, 3).join(" · ") || "Tattoo artist"}</p>
-              </Link>
+            <li key={a._id} className="reveal">
+              <ArtistTile artist={a} />
             </li>
           ))}
         </ul>
-      </section>
-    </div>
+      </Section>
+    </>
   );
 }

@@ -23,7 +23,7 @@ export function ArtistGallery({ items, artist }: { items: WixGalleryItem[]; arti
             <button
               type="button"
               data-lightbox-index={i}
-              className="block w-full cursor-zoom-in overflow-hidden bg-ink-3"
+              className="block w-full cursor-zoom-in overflow-hidden rounded-xl bg-ink-3"
               aria-label={`Enlarge: ${alt(g, i)}`}
             >
               <WixImage
