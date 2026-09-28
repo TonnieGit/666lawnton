@@ -55,7 +55,8 @@ export function ProductGrid({
   return (
     <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
       {products.map((p, i) => (
-        <li key={p._id}>
+        // Cards past the first rows skip rendering (and image fetches) until scrolled near.
+        <li key={p._id} className={i >= 6 ? "[contain-intrinsic-size:auto_320px] [content-visibility:auto]" : undefined}>
           <ProductCard product={p} priority={i < priorityCount} headingLevel={headingLevel} />
         </li>
       ))}

@@ -2,8 +2,11 @@ import { WixImage } from "@/components/WixImage";
 import type { WixGalleryItem } from "@/lib/data/types";
 import { GalleryLightbox } from "./GalleryLightbox";
 
+const INITIAL = 8;
+
 // Server-rendered grid (no hydration cost per thumbnail); a single small client
-// component opens the lightbox via event delegation.
+// component opens the lightbox and reveals the rest. Hidden thumbnails are in the
+// HTML for crawlers but aren't downloaded until shown, which keeps mobile LCP fast.
 export function ArtistGallery({ items, artist }: { items: WixGalleryItem[]; artist: string }) {
   // seo.md §B6: "{style} tattoo by {artist} at 666 Tattoo Lawnton", style when known.
   const alt = (g: WixGalleryItem, i: number) =>
@@ -16,7 +19,7 @@ export function ArtistGallery({ items, artist }: { items: WixGalleryItem[]; arti
     <>
       <ul id={id} className="columns-2 gap-3 md:columns-3 lg:columns-4">
         {items.map((g, i) => (
-          <li key={`${g.src}-${i}`} className="mb-3 break-inside-avoid">
+          <li key={`${g.src}-${i}`} className="mb-3 break-inside-avoid" hidden={i >= INITIAL} data-gallery-more={i >= INITIAL || undefined}>
             <button
               type="button"
               data-lightbox-index={i}
@@ -38,6 +41,7 @@ export function ArtistGallery({ items, artist }: { items: WixGalleryItem[]; arti
         containerId={id}
         images={items.map((g, i) => ({ image: g.src, alt: alt(g, i) }))}
         label={`${artist}'s portfolio`}
+        hiddenCount={Math.max(0, items.length - INITIAL)}
       />
     </>
   );
