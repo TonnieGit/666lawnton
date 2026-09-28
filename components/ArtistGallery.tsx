@@ -2,7 +2,7 @@ import { WixImage } from "@/components/WixImage";
 import type { WixGalleryItem } from "@/lib/data/types";
 import { GalleryLightbox } from "./GalleryLightbox";
 
-const INITIAL = 8;
+const INITIAL = 6;
 
 // Server-rendered grid (no hydration cost per thumbnail); a single small client
 // component opens the lightbox and reveals the rest. Hidden thumbnails are in the
