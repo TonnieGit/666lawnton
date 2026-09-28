@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { buttonClass } from "@/components/ButtonLink";
 import { Lightbox, type LightboxImage } from "@/components/Lightbox";
 
 /**
@@ -48,7 +49,7 @@ export function GalleryLightbox({
             type="button"
             onClick={showAll}
             aria-controls={containerId}
-            className="border border-bone/40 px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-bone hover:text-ink"
+            className={buttonClass("outline")}
           >
             Show all {images.length} tattoos
           </button>

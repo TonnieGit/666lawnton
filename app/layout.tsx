@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { JsonLd } from "@/components/JsonLd";
+import { BookingPill } from "@/components/layout/BookingPill";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { getBusinessInfo } from "@/lib/data";
@@ -47,6 +48,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <Footer />
+          <BookingPill />
           <CartDrawer />
         </CartProvider>
         {isProduction && <Analytics />}

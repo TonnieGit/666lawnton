@@ -19,7 +19,7 @@ export function ProductCard({
   return (
     <Link href={`/product-page/${product.slug}`} className="group block">
       {/* Consistent square crop on a neutral ground: photography varies a lot (spec §9). */}
-      <div className="relative aspect-square overflow-hidden bg-bone-2">
+      <div className="relative aspect-square overflow-hidden rounded-xl bg-bone-2">
         <WixImage
           image={img}
           alt={img?.altText || product.name}
@@ -29,7 +29,7 @@ export function ProductCard({
         />
         {(sold || product.ribbon) && (
           <span
-            className={`absolute left-2 top-2 px-2 py-1 text-[11px] font-bold uppercase tracking-wider ${
+            className={`absolute left-2 top-2 rounded-md px-2 py-1 text-[11px] font-bold uppercase tracking-wider ${
               sold ? "bg-ink text-bone" : "bg-blood text-white"
             }`}
           >

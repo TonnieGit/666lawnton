@@ -80,7 +80,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
                 <Link
                   href={`/category/${c.slug}`}
                   aria-current={c.slug === slug ? "page" : undefined}
-                  className="inline-block border border-bone/25 px-4 py-2 text-sm hover:border-bone aria-[current=page]:border-bone aria-[current=page]:bg-bone aria-[current=page]:text-ink"
+                  className="inline-block rounded-xl border border-bone/25 px-4 py-2 text-sm hover:border-bone aria-[current=page]:border-bone aria-[current=page]:bg-bone aria-[current=page]:text-ink"
                 >
                   {c.name} <span className="opacity-70">({c.numberOfProducts})</span>
                 </Link>
@@ -116,7 +116,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
               href={pageHref(n)}
               aria-current={n === page ? "page" : undefined}
               aria-label={`Page ${n}`}
-              className="grid size-10 place-items-center border border-bone/25 text-sm hover:border-bone aria-[current=page]:bg-bone aria-[current=page]:text-ink"
+              className="grid size-10 place-items-center rounded-xl border border-bone/25 text-sm hover:border-bone aria-[current=page]:bg-bone aria-[current=page]:text-ink"
             >
               {n}
             </Link>

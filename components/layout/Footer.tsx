@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { buttonClass } from "@/components/ButtonLink";
 import { HoursList } from "@/components/LocationBlock";
 import { getBusinessInfo } from "@/lib/data";
 import { FOOTER_LINKS } from "@/lib/site";
@@ -13,14 +14,15 @@ export async function Footer() {
 
   return (
     <footer className="mt-24 border-t border-bone/10 bg-ink-2">
-      <div className="mx-auto max-w-6xl px-4 py-14">
+      {/* Extra bottom padding keeps the last line clear of the fixed booking pill. */}
+      <div className="mx-auto max-w-6xl px-4 pb-28 pt-14">
         <div className="flex flex-col items-start justify-between gap-6 border-b border-bone/10 pb-10 md:flex-row md:items-center">
           <p className="max-w-lg font-display text-3xl leading-tight">
             Tattoos &amp; antiques in Lawnton, on Brisbane&apos;s northside.
           </p>
           <Link
             href="/contact-us"
-            className="bg-blood px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-blood/90"
+            className={buttonClass()}
           >
             Chat to us now
           </Link>

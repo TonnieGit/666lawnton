@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArtistGallery } from "@/components/ArtistGallery";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
+import { ButtonLink, Paragraphs, buttonClass } from "@/components/ButtonLink";
 import { JsonLd } from "@/components/JsonLd";
 import { WixImage } from "@/components/WixImage";
 import { getArtists } from "@/lib/data";
@@ -101,7 +101,7 @@ export default async function ArtistPage({ params }: Props) {
                 href={`https://www.instagram.com/${artist.instagram}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-bone/40 px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-bone hover:text-ink"
+                className={buttonClass("outline")}
               >
                 Instagram
               </a>

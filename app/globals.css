@@ -33,6 +33,23 @@ body {
   font-family: var(--font-sans);
 }
 
+/*
+  Light section. Remaps the dark-theme tokens inside it, so components written
+  for ink (text-bone, bg-ink-2, text-muted, text-brass…) read correctly on paper
+  without light-specific variants. Sections alternate ink / paper down the page.
+*/
+.surface-light {
+  --color-ink: #f7f3ea;
+  --color-ink-2: #efe8da;
+  --color-ink-3: #e3dac8;
+  --color-bone: #131110;
+  --color-muted: #5f574d;
+  --color-brass: #735418; /* on paper: 6.3:1, on ink-3 here: 5.0:1 */
+  --color-blood-bright: #9e2a22;
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-brass);
   outline-offset: 3px;

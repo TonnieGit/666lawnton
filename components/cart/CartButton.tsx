@@ -9,7 +9,7 @@ export function CartButton() {
     <button
       type="button"
       onClick={open}
-      className="relative flex items-center gap-2 p-2 hover:text-brass"
+      className="relative flex items-center gap-2 rounded-xl p-2 hover:bg-bone/10"
       aria-label={`Open cart, ${count} ${count === 1 ? "item" : "items"}`}
     >
       <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.6">

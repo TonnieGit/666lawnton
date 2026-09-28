@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { buttonClass } from "@/components/ButtonLink";
 import { useCart } from "@/components/cart/CartProvider";
 import type { WixProduct } from "@/lib/data/types";
 
@@ -40,7 +41,7 @@ export function AddToCart({ product }: { product: WixProduct }) {
             id={`opt-${opt.name}`}
             value={options[opt.name] ?? ""}
             onChange={(e) => setOptions((o) => ({ ...o, [opt.name]: e.target.value }))}
-            className="mt-2 w-full border border-bone/30 bg-ink-2 px-3 py-3"
+            className="mt-2 w-full rounded-xl border border-bone/30 bg-ink-2 px-3 py-3"
           >
             <option value="" disabled>
               Select {opt.name.toLowerCase()}
@@ -66,7 +67,7 @@ export function AddToCart({ product }: { product: WixProduct }) {
             id="qty"
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="mt-2 w-24 border border-bone/30 bg-ink-2 px-3 py-3"
+            className="mt-2 w-24 rounded-xl border border-bone/30 bg-ink-2 px-3 py-3"
           >
             {Array.from({ length: Math.min(max, 10) }, (_, i) => i + 1).map((n) => (
               <option key={n} value={n}>
@@ -86,7 +87,7 @@ export function AddToCart({ product }: { product: WixProduct }) {
       <button
         type="submit"
         disabled={soldOut || allInCart || busy}
-        className="w-full bg-blood px-6 py-4 text-sm font-semibold uppercase tracking-wider text-white hover:bg-blood/90 disabled:cursor-not-allowed disabled:opacity-50"
+        className={`w-full ${buttonClass()}`}
       >
         {soldOut ? "Sold out" : allInCart ? "In your cart" : busy ? "Adding…" : "Add to cart"}
       </button>

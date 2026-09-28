@@ -28,7 +28,7 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-nav"
         aria-label={open ? "Close menu" : "Open menu"}
-        className="p-2"
+        className="rounded-xl p-2 hover:bg-bone/10"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.6">
           {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -38,11 +38,11 @@ export function MobileNav() {
         id="mobile-nav"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-bone/10 bg-ink px-4 pb-6"
+        className="absolute inset-x-3 top-full mt-2 rounded-2xl border border-bone/10 bg-ink-2 px-5 py-2 shadow-2xl shadow-black/50 md:inset-x-4"
       >
         <ul className="flex flex-col">
           {NAV.map((item) => (
-            <li key={item.href} className="border-b border-bone/10">
+            <li key={item.href} className="border-b border-bone/10 last:border-0">
               <NavLink href={item.href} className="block py-4 font-display text-xl">
                 {item.label}
               </NavLink>

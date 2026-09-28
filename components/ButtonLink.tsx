@@ -1,5 +1,19 @@
 import Link from "next/link";
 
+type Variant = "primary" | "outline";
+
+/** Shared button look, for links, <button>s and form submits alike. */
+export function buttonClass(variant: Variant = "primary", size: "md" | "sm" = "md") {
+  const base =
+    "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50";
+  const sizes = size === "md" ? "px-6 py-3 text-sm" : "px-4 py-2 text-sm";
+  const styles =
+    variant === "primary"
+      ? "bg-blood text-white hover:bg-blood/90"
+      : "border border-bone/30 hover:border-bone hover:bg-bone hover:text-ink";
+  return `${base} ${sizes} ${styles}`;
+}
+
 export function ButtonLink({
   href,
   children,
@@ -7,17 +21,10 @@ export function ButtonLink({
 }: {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "outline";
+  variant?: Variant;
 }) {
-  const styles =
-    variant === "primary"
-      ? "bg-blood text-white hover:bg-blood/90"
-      : "border border-bone/40 hover:bg-bone hover:text-ink";
   return (
-    <Link
-      href={href}
-      className={`inline-block px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-colors ${styles}`}
-    >
+    <Link href={href} className={buttonClass(variant)}>
       {children}
     </Link>
   );

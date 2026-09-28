@@ -58,7 +58,7 @@ export default async function Home() {
             </div>
           </div>
           {hero?.image && (
-            <div className="relative aspect-[763/636] w-full overflow-hidden">
+            <div className="relative aspect-[763/636] w-full overflow-hidden rounded-2xl">
               <WixImage
                 image={hero.image}
                 alt="Colour hummingbird tattoo on a forearm, by 666 Tattoo Lawnton"
@@ -71,15 +71,15 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Tattoos, then Antiques (seo.md §B8.1) */}
+      {/* Tattoos (ink), then Antiques (paper, running into the product grid below) (seo.md §B8.1) */}
       {[
         { item: tattoo, alt: "Jimmy, tattoo artist at 666 Tattoo Lawnton, at work", eyebrow: "Tattoos" },
         { item: antiques, alt: "Vintage silver measure from the 666 antiques shop", eyebrow: "Antiques" },
       ].map(({ item, alt, eyebrow }, i) =>
         item ? (
-          <section key={item._id} aria-labelledby={item._id} className="border-b border-bone/10">
+          <section key={item._id} aria-labelledby={item._id} className={i % 2 ? "surface-light" : ""}>
             <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-2 md:gap-16">
-              <div className={`relative aspect-[4/5] overflow-hidden bg-ink-3 ${i % 2 ? "md:order-2" : ""}`}>
+              <div className={`relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink-3 ${i % 2 ? "md:order-2" : ""}`}>
                 {item.image && (
                   <WixImage image={item.image} alt={alt} sizes="(min-width: 768px) 540px, 100vw" className="object-cover" />
                 )}
@@ -104,20 +104,20 @@ export default async function Home() {
       )}
 
       {/* Latest antiques (on paper, so product photos read cleanly) */}
-      <section aria-labelledby="latest" className="bg-paper py-20 text-ink">
+      <section aria-labelledby="latest" className="surface-light pb-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-dark">Fresh on the shelves</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-brass">Fresh on the shelves</p>
               <h2 id="latest" className="mt-2 font-display text-4xl">
                 Our Antiques Shop
               </h2>
             </div>
-            <Link href="/category/all-products" className="text-sm font-semibold uppercase tracking-wider text-blood hover:underline">
+            <Link href="/category/all-products" className="text-sm font-semibold text-blood hover:underline">
               View all antiques →
             </Link>
           </div>
-          <div className="mt-10 [&_.text-blood-bright]:text-blood [&_.text-muted]:text-muted-dark">
+          <div className="mt-10">
             <ProductGrid products={latest} headingLevel="h3" />
           </div>
         </div>
@@ -125,7 +125,7 @@ export default async function Home() {
 
       {/* Artists teaser */}
       {artists.length > 0 && (
-        <section aria-labelledby="artists" className="mx-auto max-w-6xl px-4 py-20">
+        <section aria-labelledby="artists" className="mx-auto max-w-6xl px-4 py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.3em] text-brass">The studio</p>
             <h2 id="artists" className="mt-2 font-display text-4xl">
@@ -137,7 +137,7 @@ export default async function Home() {
             {artists.map((a) => (
               <li key={a._id}>
                 <Link href={artistPath(a.slug)} className="group block">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-ink-3">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink-3">
                     <WixImage
                       image={a.profileImage}
                       alt={`${a.title}, tattoo artist at 666 Tattoo Lawnton`}
@@ -162,8 +162,8 @@ export default async function Home() {
       )}
 
       {/* Find us */}
-      <section aria-labelledby="visit" className="border-t border-bone/10">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2">
+      <section aria-labelledby="visit" className="surface-light">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-24 md:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-brass">Find us</p>
             <h2 id="visit" className="mt-2 font-display text-4xl">
@@ -174,12 +174,12 @@ export default async function Home() {
               <BusinessDetails business={business} />
             </div>
             <p className="mt-8">
-              <Link href="/contact-us" className="text-sm font-semibold uppercase tracking-wider text-brass hover:underline">
+              <Link href="/contact-us" className="text-sm font-semibold text-brass hover:underline">
                 Contact details and directions →
               </Link>
             </p>
           </div>
-          <MapEmbed business={business} className="min-h-80" />
+          <MapEmbed business={business} className="min-h-80 rounded-2xl" />
         </div>
       </section>
     </>

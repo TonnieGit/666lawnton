@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { buttonClass } from "@/components/ButtonLink";
 import { WixImage } from "@/components/WixImage";
 import { getCheckoutUrl, isCheckoutEnabled } from "@/lib/data/cart";
 import { useCart } from "./CartProvider";
@@ -29,7 +30,7 @@ export function CartContents({ onNavigate }: { onNavigate?: () => void }) {
         <Link
           href="/category/all-products"
           onClick={onNavigate}
-          className="mt-4 inline-block border border-bone/40 px-5 py-3 text-sm font-medium uppercase tracking-wider hover:bg-bone hover:text-ink"
+          className={`mt-4 ${buttonClass("outline")}`}
         >
           Browse the antiques
         </Link>
@@ -68,7 +69,7 @@ export function CartContents({ onNavigate }: { onNavigate?: () => void }) {
                   value={line.quantity}
                   disabled={busy}
                   onChange={(e) => update(line._id, Number(e.target.value))}
-                  className="border border-bone/30 bg-ink-2 px-2 py-1 text-sm"
+                  className="rounded-lg border border-bone/30 bg-ink-2 px-2 py-1 text-sm"
                 >
                   {Array.from({ length: Math.max(1, Math.min(10, line.maxQuantity ?? 10)) }, (_, i) => i + 1).map((n) => (
                     <option key={n} value={n}>
@@ -101,7 +102,7 @@ export function CartContents({ onNavigate }: { onNavigate?: () => void }) {
           onClick={checkout}
           disabled={!isCheckoutEnabled || checkingOut}
           aria-describedby={isCheckoutEnabled ? undefined : "checkout-note"}
-          className="mt-4 w-full bg-blood px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-blood/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className={`mt-4 w-full ${buttonClass()}`}
         >
           {checkingOut ? "Redirecting…" : "Checkout"}
         </button>

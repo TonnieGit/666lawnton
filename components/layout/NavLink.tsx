@@ -28,7 +28,7 @@ export function NavLink({
       href={href}
       onClick={onClick}
       aria-current={active ? "page" : undefined}
-      className={`underline-offset-8 hover:text-brass aria-[current=page]:text-brass aria-[current=page]:underline ${className}`}
+      className={`transition-colors hover:text-brass aria-[current=page]:text-brass ${className}`}
     >
       {children}
     </Link>

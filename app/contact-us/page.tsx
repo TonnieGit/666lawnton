@@ -43,7 +43,7 @@ export default async function ContactPage() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block border border-bone/30 px-4 py-2 text-sm hover:bg-bone hover:text-ink"
+                      className="inline-block rounded-xl border border-bone/30 px-4 py-2 text-sm hover:bg-bone hover:text-ink"
                     >
                       {s.label}
                     </a>

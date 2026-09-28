@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { buttonClass } from "@/components/ButtonLink";
 
 // PHASE 1 DEMO: this form validates and shows a success message but DOES NOT
 // SEND ANYTHING. Phase 2: submit via Wix Forms or a service like Resend
@@ -57,7 +58,7 @@ export function ContactForm({ successMessage }: { successMessage: string }) {
     );
   }
 
-  const input = "mt-2 w-full border border-bone/30 bg-ink-2 px-4 py-3 aria-[invalid=true]:border-blood-bright";
+  const input = "mt-2 w-full rounded-xl border border-bone/30 bg-ink-2 px-4 py-3 aria-[invalid=true]:border-blood-bright";
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
@@ -119,7 +120,7 @@ export function ContactForm({ successMessage }: { successMessage: string }) {
       <div className="sm:col-span-2">
         <button
           type="submit"
-          className="bg-blood px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:bg-blood/90"
+          className={buttonClass()}
         >
           Send
         </button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { buttonClass } from "@/components/ButtonLink";
 import type { BusinessInfo } from "@/lib/data/types";
 
 /**
@@ -39,7 +40,7 @@ export function MapEmbed({ business: b, query, className = "" }: { business: Bus
         <button
           type="button"
           onClick={() => setShow(true)}
-          className="border border-bone/40 px-5 py-2 text-sm font-semibold uppercase tracking-wider hover:bg-bone hover:text-ink"
+          className={buttonClass("outline", "sm")}
         >
           Show map
         </button>
@@ -47,7 +48,7 @@ export function MapEmbed({ business: b, query, className = "" }: { business: Bus
           href={`https://www.google.com/maps/search/?api=1&query=${query}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blood px-5 py-2 text-sm font-semibold uppercase tracking-wider text-white hover:bg-blood/90"
+          className={buttonClass("primary", "sm")}
         >
           Directions
         </a>

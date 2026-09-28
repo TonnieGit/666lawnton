@@ -25,7 +25,7 @@ export function SortSelect({ value }: { value: SortKey }) {
         id="sort"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-bone/30 bg-ink-2 px-3 py-2"
+        className="rounded-xl border border-bone/30 bg-ink-2 px-3 py-2"
       >
         {SORT_OPTIONS.map((o) => (
           <option key={o.value} value={o.value}>
