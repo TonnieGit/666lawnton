@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { CartContents } from "@/components/cart/CartContents";
 
-export const metadata: Metadata = { title: "Your cart", robots: { index: false } };
+// Never indexed (seo.md §B7), also disallowed in robots.txt.
+export const metadata: Metadata = {
+  title: { absolute: "Your cart | 666 Tattoo & Antiques" },
+  robots: { index: false, follow: false },
+};
 
 export default function CartPage() {
   return (

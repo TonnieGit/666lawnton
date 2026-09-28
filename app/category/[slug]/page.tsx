@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProductGrid } from "@/components/product/ProductCard";
 import { SortSelect } from "@/components/product/SortSelect";
 import { getCollectionBySlug, getCollections, getProducts } from "@/lib/data";
+import { pageMetadata, wixOgImage } from "@/lib/seo";
 import { readSort } from "@/lib/sort";
 import { PRODUCTS_PER_PAGE } from "@/lib/site";
 
@@ -13,18 +15,23 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const page = Math.max(1, Number((await searchParams).page) || 1);
   const collection = await getCollectionBySlug(slug);
   if (!collection) return {};
   const isAll = slug === "all-products";
-  return {
-    title: isAll ? "Our antiques shop" : `${collection.name} | Antiques`,
+  const { items } = await getProducts({ collectionSlug: slug, limit: 1 });
+  const img = items[0]?.media.mainMedia?.image;
+  return pageMetadata({
+    title: isAll ? "Antiques & Vintage Collectables | 666 Shop Lawnton" : `${collection.name} | Antiques & Vintage | 666 Lawnton`,
     description: isAll
-      ? "Hand-picked antiques that are funky, grungy and different, from 666 Tattoo & Antiques in Lawnton, North Brisbane."
-      : `Shop ${collection.name.toLowerCase()} antiques from 666 Tattoo & Antiques in Lawnton, North Brisbane.`,
-    alternates: { canonical: `/category/${slug}` },
-  };
+      ? "Hand-picked antiques, vintage porcelain, glassware and oddities from our shop in Lawnton, North Brisbane. Browse online or visit in store."
+      : `Shop ${collection.name.toLowerCase()} antiques and vintage finds from 666 Antiques in Lawnton, North Brisbane. Browse online or visit us in store.`,
+    // Sort variants canonicalise to the plain URL; paginated pages self-canonicalise (seo.md §B3).
+    path: `/category/${slug}${page > 1 ? `?page=${page}` : ""}`,
+    image: img ? { url: wixOgImage(img.url), width: 1200, height: 630, alt: collection.name } : null,
+  });
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
@@ -33,6 +40,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const collection = await getCollectionBySlug(slug);
   if (!collection) notFound();
 
+  const isAll = slug === "all-products";
   const sort = readSort(sp.sort);
   const page = Math.max(1, Number(sp.page) || 1);
   const [{ items, total }, collections] = await Promise.all([
@@ -50,8 +58,19 @@ export default async function CategoryPage({ params, searchParams }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <p className="text-xs uppercase tracking-[0.25em] text-brass">Our antiques shop</p>
-      <h1 className="mt-2 font-display text-4xl md:text-5xl">{collection.name}</h1>
+      <Breadcrumbs
+        items={[
+          { name: "Antiques", href: "/category/all-products" },
+          ...(isAll ? [] : [{ name: collection.name, href: `/category/${slug}` }]),
+        ]}
+      />
+      <h1 className="mt-6 font-display text-4xl md:text-5xl">{isAll ? "Antiques & Vintage Finds" : collection.name}</h1>
+      {/* TODO(client): shop intro drafted for the demo (seo.md §B2 antiques cluster). */}
+      <p className="mt-4 max-w-3xl leading-relaxed text-bone/85">
+        {isAll
+          ? "A northside Brisbane antique shop with a difference: hand-picked vintage porcelain, glassware, collectables and oddities that are funky, grungy and different. Every piece is in our Lawnton shop, so browse online and come in to see it in person."
+          : `${collection.name} from our antiques shop in Lawnton, North Brisbane. Most pieces are one of a kind, so if you love it, grab it.`}
+      </p>
 
       {collections.length > 1 && (
         <nav aria-label="Categories" className="mt-8 -mx-4 overflow-x-auto px-4">

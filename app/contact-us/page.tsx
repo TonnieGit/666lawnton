@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/ContactForm";
-import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BusinessDetails, MapEmbed } from "@/components/LocationBlock";
 import { getBusinessInfo, getSiteContent } from "@/lib/data";
-import { localBusinessJsonLd } from "@/lib/structured-data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact us",
-  description: "Contact, call or email our 666 Tattoo and Antiques Shop in Lawnton, North Brisbane, Australia.",
-  alternates: { canonical: "/contact-us" },
-};
+export const metadata = pageMetadata({
+  title: "Contact & Directions | 666 Tattoo & Antiques Lawnton",
+  description:
+    "Visit us at 21/666 Gympie Road, Lawnton QLD 4501, call 0448 677 666 or send a message. Opening hours, map and directions.",
+  path: "/contact-us",
+});
 
 export default async function ContactPage() {
   const [business, intro] = await Promise.all([getBusinessInfo(), getSiteContent("contact-intro")]);
@@ -22,9 +22,13 @@ export default async function ContactPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
-      <JsonLd data={localBusinessJsonLd(business)} />
-      <p className="text-xs uppercase tracking-[0.3em] text-brass">Here&apos;s how you can</p>
-      <h1 className="mt-2 font-display text-5xl md:text-6xl">{intro?.title ?? "Get in touch with us"}</h1>
+      {/* LocalBusiness JSON-LD is site-wide (app/layout.tsx). */}
+      <Breadcrumbs items={[{ name: "Contact us", href: "/contact-us" }]} />
+      <h1 className="mt-6 font-display text-5xl md:text-6xl">{intro?.title ?? "Get in Touch"}</h1>
+      <p className="mt-5 max-w-2xl text-lg leading-relaxed text-bone/85">
+        Come and see us at our tattoo studio and antiques shop on Gympie Road, Lawnton. We&apos;re a short drive from{" "}
+        {business.catchment.slice(0, 5).join(", ")} and {business.catchment[5]}. Call, email or send us a message below.
+      </p>
 
       <div className="mt-12 grid gap-14 lg:grid-cols-[1fr_1.3fr]">
         <div>

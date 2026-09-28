@@ -40,8 +40,21 @@ The new site **must keep the existing URL structure** so Google rankings and sha
 | Shop (all products) | `/category/all-products` | `app/category/[slug]/page.tsx` |
 | Product detail | `/product-page/[slug]` | `app/product-page/[slug]/page.tsx` |
 | Tattoo artists | `/portfolio` | `app/portfolio/page.tsx` |
+| Artist pages | `/portfolio-collections/my-portfolio/[artist]` | `app/portfolio/[slug]/page.tsx` at `/portfolio/[artist]` (301 from old, seo.md §B3) |
+| Tattoos (new) | — | `app/tattoos/page.tsx` |
+| FAQ (new) | — | `app/faq/page.tsx` |
+| Tattoo aftercare (new) | — | `app/tattoo-aftercare/page.tsx` |
+| Gift vouchers (new) | — | `app/gift-vouchers/page.tsx` |
 | Contact us | `/contact-us` | `app/contact-us/page.tsx` |
-| Cart | (Wix side cart) | `app/cart/page.tsx` or slide-out drawer |
+| Cart | (Wix side cart) | `app/cart/page.tsx` and slide-out drawer (`noindex`) |
+
+Found by the scraper (`data/mock/scrape-report.json`) and handled by redirects in `next.config.ts`:
+
+| Existing URL | Handling |
+|---|---|
+| `/category/{dolls,fine-art-ceramics,kitchen-decor,musical-instruments}` | Served by `app/category/[slug]` |
+| `/portfolio-collections/my-portfolio` | 301 → `/portfolio` |
+| `/book-online` ("Nothing to book right now") | 301 → `/contact-us` |
 
 Any other URLs discovered by the scraper (for example extra categories or pages linked from the sitemap) are logged in the scrape report and added to this table before build.
 

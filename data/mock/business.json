@@ -1,6 +1,7 @@
 {
   "name": "666 Tattoo & Antiques",
   "phone": "0448 677 666",
+  "phoneE164": "+61448677666",
   "email": "666shoplawnton@gmail.com",
   "address": {
     "street": "21/666 Gympie Road",
@@ -10,7 +11,25 @@
     "postcode": "4501",
     "country": "Australia"
   },
+  "geo": null,
   "hours": [],
+  "licenceNumber": "",
+  "priceRange": "$$",
+  "logo": "https://static.wixstatic.com/media/bfd742_98a9fb601a3341fa8f04ed8615c53a1b~mv2.jpeg",
+  "images": [],
+  "areaServed": ["Lawnton", "Strathpine", "Petrie", "North Lakes", "Kallangur", "Brendale", "Moreton Bay"],
+  "catchment": [
+    "Strathpine",
+    "Petrie",
+    "Bray Park",
+    "Kallangur",
+    "Brendale",
+    "Warner",
+    "Murrumba Downs",
+    "North Lakes",
+    "Narangba",
+    "Albany Creek"
+  ],
   "socials": {
     "facebook": "666tattoolawnton",
     "instagram": "666tattoolawnton",

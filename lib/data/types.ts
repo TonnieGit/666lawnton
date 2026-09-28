@@ -126,6 +126,8 @@ export interface WixGalleryItem {
   src: WixImageRef;
   title: string;
   description: string;
+  /** Tattoo style, used for alt text (seo.md §B6). Empty until the client fills it in. */
+  style?: string;
 }
 
 export interface ArtistItem {
@@ -163,6 +165,8 @@ export interface BusinessHours {
 export interface BusinessInfo {
   name: string;
   phone: string;
+  /** +61… for tel: links and structured data. */
+  phoneE164: string;
   email: string;
   address: {
     street: string;
@@ -173,6 +177,14 @@ export interface BusinessInfo {
     country: string;
   };
   hours: BusinessHours[];
+  geo: { latitude: number; longitude: number } | null;
+  licenceNumber: string;
+  priceRange: string;
+  logo: string;
+  images: string[];
+  areaServed: string[];
+  /** Nearby suburbs mentioned in body copy (no doorway pages, seo.md §B1). */
+  catchment: string[];
   socials: { facebook: string; instagram: string; tiktok?: string };
 }
 

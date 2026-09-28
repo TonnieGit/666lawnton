@@ -10,6 +10,7 @@
     "scrape": "tsx scripts/scrape/index.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "@wix/data": "^1.0.522",
     "@wix/ecom": "^1.0.2514",
     "@wix/redirects": "^1.0.129",

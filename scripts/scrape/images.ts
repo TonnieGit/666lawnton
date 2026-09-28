@@ -49,6 +49,13 @@ export async function getImage(mediaId: string): Promise<ImageInfo | null> {
   return result;
 }
 
+/** Wix alt text is often just the upload filename; discard those (seo.md §B6). */
+export function cleanAlt(alt: string | null | undefined): string {
+  const a = (alt ?? "").trim();
+  if (!a || /^(screenshot|img_|dsc|\d{6,})/i.test(a) || /\.(png|jpe?g|gif|webp|heic)\b/i.test(a)) return "";
+  return a;
+}
+
 /** CMS-style reference used by @wix/data image fields. */
 export function toWixImageRef(img: ImageInfo): string {
   return `wix:image://v1/${img.mediaId}/${img.mediaId}#originWidth=${img.width}&originHeight=${img.height}`;

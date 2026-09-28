@@ -1,51 +1,49 @@
 [
   {
     "_id": "home-hero",
-    "title": "666 Tattoo & Antiques",
-    "body": "A unique blend of decades of tattoo expertise, a passion for antiques and a love of great coffee - all in one place.",
+    "title": "Tattoos & Antiques in Lawnton",
+    "body": "A tattoo shop in Lawnton with over 30 years' combined experience, and a shop full of hand-picked antiques that are funky, grungy and different. All under one roof on Gympie Road, North Brisbane.",
     "image": "wix:image://v1/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg#originWidth=763&originHeight=636",
-    "ctaLabel": "Chat to us now",
+    "ctaLabel": "Enquire about a tattoo",
     "ctaHref": "/contact-us"
   },
   {
     "_id": "home-tattoo",
-    "title": "Tattoo",
-    "body": "Different specialty styles of tattoo with a combined expertise of over 30 years, from traditional and Japanese to fine line, blackwork and realism.",
+    "title": "Custom tattoos on Brisbane's northside",
+    "body": "666 Tattoo is a working tattoo studio in Lawnton, run by artists with more than 30 years of combined experience in the Queensland tattoo industry. Every piece is drawn for you, whether it's your first small script or a full sleeve.\n\nOur artists cover a wide range of styles: bold traditional and Japanese work, realism and portraits, blackwork, stipple and fine line, and neo traditional florals. Cover-ups are a speciality. If you've got an old tattoo you've fallen out of love with, Jimmy has spent more than 20 years reworking and covering pieces just like it.\n\nWe're a short drive from Strathpine, Petrie, Kallangur and North Lakes, so it's easy to pop in, talk through your idea and see the artists' portfolios in person. We also stock tattoo gift vouchers and quality aftercare products, so you can look after your new ink from day one.",
     "image": "wix:image://v1/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg#originWidth=576&originHeight=767",
-    "ctaLabel": "Meet our artists",
-    "ctaHref": "/portfolio"
+    "ctaLabel": "Explore our tattoo styles",
+    "ctaHref": "/tattoos"
   },
   {
     "_id": "home-antiques",
-    "title": "Antiques",
-    "body": "A curated collection of hand-picked antiques that are funky, grungy and different.",
+    "title": "An antiques shop with character",
+    "body": "Alongside the studio is our antiques shop: a curated collection of hand-picked pieces that are funky, grungy and different. It's the kind of place you come back to, because the shelves are always changing.\n\nYou'll find pre-war and 1930s Noritake porcelain, mid-century pressed glass, fine art ceramics, kitchenalia, vintage toys and collectables, dolls and the odd musical instrument. Most pieces are one of a kind, so when something's gone, it's gone.\n\nBrowse the current stock online, or come in and have a dig through the shelves at our Lawnton shop on Gympie Road. It's an easy trip from anywhere on Brisbane's northside and the Moreton Bay region.",
     "image": "wix:image://v1/bfd742_d25bb5d2f1c742bfa03ce16f754987db~mv2.png/bfd742_d25bb5d2f1c742bfa03ce16f754987db~mv2.png#originWidth=1200&originHeight=1600",
-    "ctaLabel": "Browse the shop",
+    "ctaLabel": "Shop antiques and vintage finds",
     "ctaHref": "/category/all-products"
   },
   {
-    "_id": "home-coffee",
-    "title": "Coffee",
-    "body": "A relaxed coffee shop atmosphere and some of the best coffee on the northside of Brisbane. Grab one while you browse or wait for your appointment.",
-    "ctaLabel": "Find us",
-    "ctaHref": "/contact-us"
+    "_id": "home-artists",
+    "title": "Meet our tattoo artists",
+    "body": "Each of our tattoo artists specialises in different areas of tattoo, and all of them work out of our Lawnton shop in Brisbane, Queensland.",
+    "ctaLabel": "See every artist's portfolio",
+    "ctaHref": "/portfolio"
   },
   {
-    "_id": "home-artists",
-    "title": "Our tattoo artists",
-    "body": "Each of our tattoo artists specialise in different areas of tattoo, and are all based out of our Lawnton shop in Brisbane, Queensland, Australia.",
-    "ctaLabel": "See their work",
-    "ctaHref": "/portfolio"
+    "_id": "home-find-us",
+    "title": "Visit our Lawnton studio",
+    "body": "Find us at 21/666 Gympie Road, Lawnton. We're a short drive from Strathpine, Petrie, Bray Park, Kallangur, Brendale and North Lakes, and easy to reach from anywhere in the Moreton Bay region. Drop in to talk through a tattoo idea or browse the antiques."
   },
   {
     "_id": "about-intro",
     "title": "What we're about",
-    "body": "We are a unique shop for unique folks.\n\nWe offer different specialty types of tattoos with a combined expertise of over 30 years, alongside a curated collection of hand-picked antiques that are funky, grungy and different. With both of these passions, we could only top it off by adding a relaxed coffee shop atmosphere and some of the best coffee on the northside of Brisbane.",
+    "body": "We are a unique shop for unique folks.\n\nWe offer different specialty types of tattoos with a combined expertise of over 30 years, alongside a curated collection of hand-picked antiques that are funky, grungy and different. With both of these passions, we could only top it off with a relaxed atmosphere where you're welcome to hang around, have a chat and take your time.",
     "image": "wix:image://v1/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg#originWidth=763&originHeight=636"
   },
   {
     "_id": "about-what-we-do",
-    "title": "What we do",
+    "title": "Tattoos, aftercare and gift vouchers",
     "body": "Our team are well versed in the Australian, and more specifically Queensland, tattoo industry with plenty of experience and knowledge to ensure your next tattoo is the best it can be.\n\nWe remain committed to the best experience; meaning we have a tonne of other services and products you can check out while you're in the shop. We stock gift vouchers, merchandise, the best aftercare tattoo products possible and we strive to exceed your expectations.",
     "image": "wix:image://v1/bfd742_cade63cffca0435589800f1f75ef4c66~mv2.png/bfd742_cade63cffca0435589800f1f75ef4c66~mv2.png#originWidth=804&originHeight=861",
     "ctaLabel": "Get in touch with us now",
@@ -53,12 +51,12 @@
   },
   {
     "_id": "portfolio-intro",
-    "title": "Our artists",
-    "body": "Here are our tattoo artists and their works. Each of our tattoo artists specialise in different areas of tattoo, and are all based out of our Lawnton shop in Brisbane, Queensland, Australia."
+    "title": "Our Tattoo Artists",
+    "body": "Meet the tattoo artists at 666 Tattoo in Lawnton, North Brisbane. Each of our artists specialises in different styles, from traditional, Japanese and cover-ups to realism, blackwork and fine line, and all of them work out of our Lawnton studio."
   },
   {
     "_id": "contact-intro",
-    "title": "Get in touch with us",
+    "title": "Get in Touch",
     "body": "Thanks for getting in touch with us - we will try to get back to you ASAP.",
     "ctaLabel": "Send"
   },

@@ -11,7 +11,7 @@ import {
   type WixProductOption,
 } from "../../lib/data/types";
 import { ricosToHtml } from "./ricos";
-import { getImage, mediaIdOf } from "./images";
+import { cleanAlt, getImage, mediaIdOf } from "./images";
 import { SITE } from "./http";
 
 export type ExtractionMethod = "embedded" | "json-ld" | "dom";
@@ -75,8 +75,8 @@ async function mediaItem(mediaId: string, title = "", alt?: string | null): Prom
   return {
     _id: mediaId,
     mediaType: "image",
-    title,
-    image: { url: img.url, width: img.width, height: img.height, ...(alt ? { altText: alt } : {}) },
+    title: cleanAlt(title),
+    image: { url: img.url, width: img.width, height: img.height, ...(cleanAlt(alt) ? { altText: cleanAlt(alt) } : {}) },
     thumbnail: { url: `${img.url}/v1/fit/w_50,h_50,q_90/file.jpg`, width: 50, height: 50 },
   };
 }

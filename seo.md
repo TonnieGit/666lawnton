@@ -10,7 +10,7 @@ Companion to `spec.md`. Part A is an audit of the current Wix site (www.666shopl
 
 The site is small (5 main pages, ~16+ products, 4 artist pages) and has very little search visibility. Semrush (AU database) shows **13 organic keywords and roughly 350 estimated organic visits a month**. The owner's second site, `jimmytattoo.net`, shows 4 keywords and about 13 visits.
 
-The biggest strengths are the business itself (a genuinely unusual tattoo + antiques + coffee combination on a busy road), strong social proof on Facebook (56k+ likes, 98% recommend on one page, 428 reviews on the other), and product pages that already have custom meta descriptions with location terms.
+The biggest strengths are the business itself (a genuinely unusual tattoo studio + antiques shop combination on a busy road), strong social proof on Facebook (56k+ likes, 98% recommend on one page, 428 reviews on the other), and product pages that already have custom meta descriptions with location terms.
 
 The top three problems:
 
@@ -39,7 +39,8 @@ Local SEO depends on Google seeing the same Name, Address, Phone everywhere. Cur
 - One primary phone number everywhere (confirm whether 0432 654 957 is still in use).
 - Confirm which tattoo licence number is current and display it on the site.
 - Decide what happens to `jimmytattoo.net`. If they control it, 301-redirect it to Jimmy's artist page on the new site so any authority it has flows to the main domain.
-- Claim and fully complete the Google Business Profile (categories: Tattoo shop primary; Antique store and Coffee shop secondary), with hours, photos, and the website link.
+- Claim and fully complete the Google Business Profile (categories: Tattoo shop primary; Antique store secondary), with hours, photos, and the website link. Don't list a coffee or cafe category.
+- The @666tattoocafe Instagram handle suggests a cafe that doesn't exist as an offering. Consider renaming or retiring it so customers (and Google) aren't told they can come in for coffee.
 
 ## A3. On-page issues
 
@@ -48,7 +49,7 @@ Local SEO depends on Google seeing the same Name, Address, Phone everywhere. Cur
 | All | Site name in titles is "666 Tattoo Antiques" (missing "&") | Medium | Use "666 Tattoo & Antiques" consistently |
 | Home | Title "Home \| 666 Tattoo Antiques" has no service or location keywords | High | Keyword-led title (B4) |
 | Home | Meta description is one vague sentence | High | Rewrite with services, location, call to action |
-| Home | Very little text; tattoo services not described | Critical | Add tattoo, antiques and coffee sections with real copy |
+| Home | Very little text; tattoo services not described | Critical | Add tattoo and antiques sections with real copy |
 | Home, About | Images named and alt-texted "Screenshot 2024-11-07 at 2.22.14 PM.png" | Medium | Descriptive alt text |
 | All | Social share image is the small logo on every page | Low | Per-page OG images (B6) |
 | About | Typo "typs"; generic heading "What we're about" | Low | Fix copy; keyword-bearing H2s |
@@ -72,7 +73,7 @@ Local SEO depends on Google seeing the same Name, Address, Phone everywhere. Cur
 ## A5. Competitive landscape
 
 - **"Tattoo + suburb" searches** in the area are dominated by directories (Fresha, Yellow Pages) and Google Maps results, not studio websites. That's an opportunity: few local studios have strong pages, so decent on-page SEO plus a well-run Google Business Profile can compete.
-- **Closest direct competitor:** Method Art Collective / Method Tattoo Coffee Bar in Brendale, a few minutes away, runs the same tattoo-plus-coffee concept. Differentiate on antiques, 30+ years combined experience, and cover-up expertise.
+- **Closest direct competitor:** Method Art Collective / Method Tattoo Coffee Bar in Brendale, a few minutes away, which pairs tattooing with a coffee bar. 666 doesn't sell coffee, so don't compete on it. Differentiate on the antiques shop, 30+ years' combined experience, and cover-up expertise.
 - **Other nearby:** tattoo studios in Strathpine, Narangba, Kippa-Ring, Deception Bay; piercing studios in Strathpine.
 - **"Antiques Brisbane"** is dominated by large multi-dealer centres (Camp Hill Antique Centre, Empire Revival, Southside Antiques Centre) and listicles. Don't compete head-on for city-wide terms. Win on **northside / Moreton Bay** terms and **item-level searches** (e.g. vintage Noritake), where individual product pages can rank.
 
@@ -120,12 +121,9 @@ No volumes are included because they could not be retrieved for this audit. **Be
 | antique porcelain / vintage glassware brisbane | Commercial | Low–Medium | Shop, product pages |
 | gothic antiques / oddities brisbane | Commercial, niche | Low (on-brand, low competition) | About, Shop intro |
 
-### Coffee
+### Coffee (not targeted)
 
-| Keyword | Intent | Priority | Target page |
-|---|---|---|---|
-| cafe lawnton / coffee lawnton | Local | Medium | Home section, contact |
-| coffee gympie road lawnton | Local | Low | Home, contact |
+Coffee is something the owners enjoy, not a business offering. Don't target coffee or cafe keywords, don't give coffee its own section or page, and don't add `CafeOrCoffeeShop` schema. A passing mention of the relaxed atmosphere in the About copy is fine.
 
 **Rule:** each keyword has one primary page. Don't target the same primary keyword with two pages.
 
@@ -169,7 +167,7 @@ Titles ≤ 60 characters, descriptions 140–160 characters. Implement with Next
 
 | Page | Title | Meta description | H1 |
 |---|---|---|---|
-| Home | Tattoo Studio, Antiques & Coffee in Lawnton \| 666 | Northside Brisbane tattoo studio with 30+ years' combined experience, plus hand-picked antiques and great coffee. 21/666 Gympie Rd, Lawnton. | Tattoos, Antiques & Coffee in Lawnton |
+| Home | Tattoo Studio & Antiques Shop in Lawnton \| 666 | Northside Brisbane tattoo studio with 30+ years' combined experience, plus a shop of hand-picked antiques. 21/666 Gympie Rd, Lawnton. Enquire today. | Tattoos & Antiques in Lawnton |
 | Tattoos | Custom & Cover-Up Tattoos, North Brisbane \| 666 Tattoo | Traditional, Japanese, realism and cover-up tattoos by experienced artists in Lawnton, close to Strathpine, Petrie and North Lakes. Enquire now. | Custom Tattoos in North Brisbane |
 | Portfolio | Tattoo Artists in North Brisbane \| 666 Tattoo Lawnton | Meet the tattoo artists at 666 Tattoo in Lawnton and browse their work across traditional, Japanese, realism and cover-up styles. | Our Tattoo Artists |
 | Artist | {Name}, Tattoo Artist in Lawnton \| 666 Tattoo | Built from the artist's bio: years of experience, top styles, and a booking CTA. | {Name} |
@@ -181,7 +179,7 @@ Titles ≤ 60 characters, descriptions 140–160 characters. Implement with Next
 | FAQ | Tattoo FAQs: Pricing, Booking & Cover-Ups \| 666 Tattoo | Answers on tattoo pricing, deposits, age rules, cover-ups and walk-ins at 666 Tattoo, Lawnton. | Frequently Asked Questions |
 | Contact | Contact & Directions \| 666 Tattoo & Antiques Lawnton | Visit us at 21/666 Gympie Road, Lawnton QLD 4501, call 0448 677 666 or send a message. Opening hours, map and directions. | Get in Touch |
 
-**Heading rules:** exactly one H1 per page. H2s describe sections using secondary keywords naturally (e.g. "Cover-Up Tattoos", "Japanese & Traditional Styles", "Our Antiques Shop", "Coffee While You Browse"). Never skip levels. The site logo is not an H1.
+**Heading rules:** exactly one H1 per page. H2s describe sections using secondary keywords naturally (e.g. "Cover-Up Tattoos", "Japanese & Traditional Styles", "Our Antiques Shop", "Visit Our Lawnton Studio"). Never skip levels. The site logo is not an H1.
 
 **Copy rules:** primary keyword in the first 100 words of each page; write for people first; no keyword stuffing; home and `/tattoos` should each have at least 300–500 words of real copy. Placeholder copy in the demo must be marked `TODO(client)` in code so it's replaced before launch.
 
@@ -194,7 +192,7 @@ Render as `<script type="application/ld+json">` in server components. Validate w
 ```json
 {
   "@context": "https://schema.org",
-  "@type": ["TattooParlor", "Store", "CafeOrCoffeeShop"],
+  "@type": ["TattooParlor", "Store"],
   "@id": "https://www.666shoplawnton.com/#business",
   "name": "666 Tattoo & Antiques",
   "url": "https://www.666shoplawnton.com",
@@ -273,7 +271,7 @@ Values for `geo`, `openingHoursSpecification`, `sameAs` and `image` live in `dat
 
 Draft these in the demo so the client sees the SEO value, clearly marked `TODO(client)` for facts to confirm:
 
-1. **Home:** three sections (Tattoos, Antiques, Coffee), each with 80–150 words and a link to its page, plus a "Find us" block with the catchment suburbs.
+1. **Home:** two main sections (Tattoos, Antiques), each with 150–250 words and a link to its page, plus a "Find us" block with the catchment suburbs.
 2. **`/tattoos`:** styles offered (traditional, Japanese, realism, cover-ups; confirm the others artists do), the booking process, deposits, pricing guidance, licence number, 30+ years' combined experience, catchment suburbs.
 3. **`/tattoo-aftercare`:** step-by-step guide (confirm with the artists' actual advice before launch).
 4. **`/faq`:** 8–12 questions. Include age requirement (18+ in Queensland), deposits, pricing, walk-ins, cover-ups, touch-ups, what to bring, parking.

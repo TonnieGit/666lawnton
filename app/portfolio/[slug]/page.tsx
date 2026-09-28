@@ -2,17 +2,34 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArtistGallery } from "@/components/ArtistGallery";
-import { ButtonLink } from "@/components/ButtonLink";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
+import { JsonLd } from "@/components/JsonLd";
 import { WixImage } from "@/components/WixImage";
 import { getArtists } from "@/lib/data";
-import { artistPath } from "@/lib/site";
+import type { ArtistItem } from "@/lib/data/types";
 import { wixImageToUrl } from "@/lib/media";
+import { pageMetadata, wixOgImage } from "@/lib/seo";
+import { artistPath } from "@/lib/site";
+import { personJsonLd } from "@/lib/structured-data";
 
-// Keeps the live Wix Portfolio URLs (spec §3 URL parity).
+// Old Wix URLs /portfolio-collections/my-portfolio/{slug} 301 here (next.config.ts).
 type Props = { params: Promise<{ slug: string }> };
 
 async function getArtist(slug: string) {
   return (await getArtists()).find((a) => a.slug === slug) ?? null;
+}
+
+/** Experience + top styles + booking CTA, 140–160 chars (seo.md §B4). */
+function artistDescription(a: ArtistItem) {
+  const first = a.bio.split(/(?<=\.)\s/)[0] ?? "";
+  const styles = a.specialties.slice(0, 3).join(", ").toLowerCase();
+  const base = styles && !first.toLowerCase().includes(styles.split(",")[0]) ? `${first} Styles: ${styles}.` : first;
+  const short = " Book at 666 Tattoo, Lawnton.";
+  const long = " Browse their tattoo portfolio and book at 666 Tattoo in Lawnton, North Brisbane.";
+  const cta = base.length + long.length <= 160 ? long : short;
+  const text = `${base}${cta}`;
+  return text.length > 160 ? `${base.slice(0, 160 - cta.length - 1).trimEnd()}…${cta}` : text;
 }
 
 export async function generateStaticParams() {
@@ -23,12 +40,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artist = await getArtist((await params).slug);
   if (!artist) return {};
   const img = wixImageToUrl(artist.profileImage);
-  return {
-    title: `${artist.title}, tattoo artist`,
-    description: artist.bio,
-    alternates: { canonical: artistPath(artist.slug) },
-    openGraph: { images: img ? [{ url: img.src, width: img.width, height: img.height }] : undefined },
-  };
+  return pageMetadata({
+    title: `${artist.title}, Tattoo Artist in Lawnton | 666 Tattoo`,
+    description: artistDescription(artist),
+    path: artistPath(artist.slug),
+    image: img ? { url: wixOgImage(img.src), width: 1200, height: 630, alt: `${artist.title}, tattoo artist` } : null,
+  });
 }
 
 export default async function ArtistPage({ params }: Props) {
@@ -41,17 +58,27 @@ export default async function ArtistPage({ params }: Props) {
   const next = artists[(i + 1) % artists.length];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <Link href="/portfolio" className="text-sm text-muted hover:text-bone">
-        ← All artists
-      </Link>
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+      <JsonLd data={personJsonLd(artist)} />
+      <Breadcrumbs
+        items={[
+          { name: "Our tattoo artists", href: "/portfolio" },
+          { name: artist.title, href: artistPath(artist.slug) },
+        ]}
+      />
 
       <div className="mt-6 grid gap-10 md:grid-cols-[320px_1fr] md:items-start">
         <div className="relative aspect-[4/5] overflow-hidden bg-ink-3">
-          <WixImage image={artist.profileImage} alt={`${artist.title}, tattoo artist`} sizes="320px" priority className="object-cover" />
+          <WixImage
+            image={artist.profileImage}
+            alt={`${artist.title}, tattoo artist at 666 Tattoo Lawnton`}
+            sizes="(min-width: 768px) 320px, 100vw"
+            priority
+            className="object-cover"
+          />
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-brass">Tattoo artist</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-brass">Tattoo artist · Lawnton</p>
           <h1 className="mt-2 font-display text-5xl md:text-6xl">{artist.title}</h1>
           {artist.specialties.length > 0 && (
             <ul className="mt-5 flex flex-wrap gap-2" aria-label="Specialties">
@@ -62,10 +89,12 @@ export default async function ArtistPage({ params }: Props) {
               ))}
             </ul>
           )}
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/85">{artist.bio}</p>
+          <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-bone/85">
+            <Paragraphs text={artist.bio} />
+          </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href={artist.bookingUrl || `/contact-us?artist=${artist.slug}`}>
-              Enquire with {artist.title}
+              Book with {artist.title}
             </ButtonLink>
             {artist.instagram && (
               <a
@@ -78,13 +107,20 @@ export default async function ArtistPage({ params }: Props) {
               </a>
             )}
           </div>
+          <p className="mt-6 text-sm text-muted">
+            Learn more about{" "}
+            <Link href="/tattoos" className="text-brass underline">
+              our tattoo styles and booking process
+            </Link>
+            .
+          </p>
         </div>
       </div>
 
       {artist.gallery.length > 0 && (
         <section aria-labelledby="work" className="mt-16">
           <h2 id="work" className="font-display text-3xl">
-            Work by {artist.title}
+            Tattoos by {artist.title}
           </h2>
           <div className="mt-8">
             <ArtistGallery items={artist.gallery} artist={artist.title} />

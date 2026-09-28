@@ -1,20 +1,38 @@
 import Link from "next/link";
-import { ButtonLink } from "@/components/ButtonLink";
+import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
 import { JsonLd } from "@/components/JsonLd";
 import { BusinessDetails, MapEmbed } from "@/components/LocationBlock";
 import { ProductGrid } from "@/components/product/ProductCard";
 import { WixImage } from "@/components/WixImage";
 import { getArtists, getBusinessInfo, getProducts, getSiteContent } from "@/lib/data";
-import { localBusinessJsonLd } from "@/lib/structured-data";
+import { pageMetadata, wixOgImage } from "@/lib/seo";
 import { artistPath } from "@/lib/site";
+import { websiteJsonLd } from "@/lib/structured-data";
+
+// TODO(client): section copy lives in SiteContent (home-*) and was drafted for the
+// demo from the live site (seo.md §B8.1). Confirm facts before launch.
+
+export const metadata = pageMetadata({
+  title: "Tattoo Studio & Antiques Shop in Lawnton | 666",
+  description:
+    "Northside Brisbane tattoo studio with 30+ years' combined experience, plus a shop of hand-picked antiques. 21/666 Gympie Rd, Lawnton. Enquire today.",
+  path: "/",
+  // TODO(client): swap for a storefront photo once supplied (seo.md §B6).
+  image: {
+    url: wixOgImage("https://static.wixstatic.com/media/bfd742_d25bb5d2f1c742bfa03ce16f754987db~mv2.png"),
+    width: 1200,
+    height: 630,
+    alt: "Vintage silver measure on the shelves at 666 Tattoo & Antiques, Lawnton",
+  },
+});
 
 export default async function Home() {
-  const [hero, tattoo, antiques, coffee, artistsIntro, { items: latest }, artists, business] = await Promise.all([
+  const [hero, tattoo, antiques, artistsIntro, findUs, { items: latest }, artists, business] = await Promise.all([
     getSiteContent("home-hero"),
     getSiteContent("home-tattoo"),
     getSiteContent("home-antiques"),
-    getSiteContent("home-coffee"),
     getSiteContent("home-artists"),
+    getSiteContent("home-find-us"),
     getProducts({ sort: "newest", limit: 8 }),
     getArtists(),
     getBusinessInfo(),
@@ -22,14 +40,14 @@ export default async function Home() {
 
   return (
     <>
-      <JsonLd data={localBusinessJsonLd(business)} />
+      <JsonLd data={websiteJsonLd(business)} />
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-bone/10">
         {/* items-start: centring would nudge the image when the web font swaps in (CLS). */}
         <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-brass">Lawnton · North Brisbane</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-brass">666 Tattoo · Lawnton · North Brisbane</p>
             <h1 className="mt-4 font-display text-5xl leading-[0.95] sm:text-6xl md:text-7xl">{hero?.title}</h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-bone/85">{hero?.body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -43,7 +61,7 @@ export default async function Home() {
             <div className="relative aspect-[763/636] w-full overflow-hidden">
               <WixImage
                 image={hero.image}
-                alt="Colour hummingbird tattoo on a forearm, with the 666 Tattoo Lawnton logo"
+                alt="Colour hummingbird tattoo on a forearm, by 666 Tattoo Lawnton"
                 sizes="(min-width: 768px) 480px, 100vw"
                 priority
                 className="object-cover"
@@ -53,44 +71,37 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Three sides of the business */}
-      <section aria-labelledby="what-we-do" className="mx-auto max-w-6xl px-4 py-20">
-        <h2 id="what-we-do" className="sr-only">
-          What we do
-        </h2>
-        <ul className="grid gap-6 md:grid-cols-3">
-          {[tattoo, antiques, coffee].filter(Boolean).map((item, i) => (
-            <li key={item!._id} className="flex flex-col bg-ink-2">
-              <div className="relative aspect-[4/3] overflow-hidden bg-ink-3">
-                {item!.image ? (
-                  <WixImage
-                    image={item!.image}
-                    alt=""
-                    sizes="(min-width: 768px) 360px, 100vw"
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="grid h-full place-items-center">
-                    <span aria-hidden="true" className="font-display text-7xl text-brass/80">
-                      ☕
-                    </span>
+      {/* Tattoos, then Antiques (seo.md §B8.1) */}
+      {[
+        { item: tattoo, alt: "Jimmy, tattoo artist at 666 Tattoo Lawnton, at work", eyebrow: "Tattoos" },
+        { item: antiques, alt: "Vintage silver measure from the 666 antiques shop", eyebrow: "Antiques" },
+      ].map(({ item, alt, eyebrow }, i) =>
+        item ? (
+          <section key={item._id} aria-labelledby={item._id} className="border-b border-bone/10">
+            <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-2 md:gap-16">
+              <div className={`relative aspect-[4/5] overflow-hidden bg-ink-3 ${i % 2 ? "md:order-2" : ""}`}>
+                {item.image && (
+                  <WixImage image={item.image} alt={alt} sizes="(min-width: 768px) 540px, 100vw" className="object-cover" />
+                )}
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-brass">{eyebrow}</p>
+                <h2 id={item._id} className="mt-2 font-display text-4xl leading-tight">
+                  {item.title}
+                </h2>
+                <div className="mt-6 space-y-4 leading-relaxed text-bone/85">
+                  <Paragraphs text={item.body} />
+                </div>
+                {item.ctaHref && (
+                  <div className="mt-8">
+                    <ButtonLink href={item.ctaHref}>{item.ctaLabel}</ButtonLink>
                   </div>
                 )}
               </div>
-              <div className="flex flex-1 flex-col p-6">
-                <p className="font-display text-sm text-brass">0{i + 1}</p>
-                <h3 className="mt-1 font-display text-3xl">{item!.title}</h3>
-                <p className="mt-3 flex-1 leading-relaxed text-bone/80">{item!.body}</p>
-                {item!.ctaHref && (
-                  <Link href={item!.ctaHref} className="mt-5 text-sm font-semibold uppercase tracking-wider text-brass hover:underline">
-                    {item!.ctaLabel} →
-                  </Link>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
+            </div>
+          </section>
+        ) : null,
+      )}
 
       {/* Latest antiques (on paper, so product photos read cleanly) */}
       <section aria-labelledby="latest" className="bg-paper py-20 text-ink">
@@ -99,15 +110,15 @@ export default async function Home() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-muted-dark">Fresh on the shelves</p>
               <h2 id="latest" className="mt-2 font-display text-4xl">
-                Our antiques
+                Our Antiques Shop
               </h2>
             </div>
             <Link href="/category/all-products" className="text-sm font-semibold uppercase tracking-wider text-blood hover:underline">
-              View all →
+              View all antiques →
             </Link>
           </div>
-          <div className="mt-10 [&_.text-muted]:text-muted-dark [&_.text-blood-bright]:text-blood">
-            <ProductGrid products={latest} />
+          <div className="mt-10 [&_.text-blood-bright]:text-blood [&_.text-muted]:text-muted-dark">
+            <ProductGrid products={latest} headingLevel="h3" />
           </div>
         </div>
       </section>
@@ -129,7 +140,7 @@ export default async function Home() {
                   <div className="relative aspect-[3/4] overflow-hidden bg-ink-3">
                     <WixImage
                       image={a.profileImage}
-                      alt={`${a.title}, tattoo artist`}
+                      alt={`${a.title}, tattoo artist at 666 Tattoo Lawnton`}
                       sizes="(min-width: 768px) 270px, 50vw"
                       className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                     />
@@ -150,20 +161,23 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Location */}
+      {/* Find us */}
       <section aria-labelledby="visit" className="border-t border-bone/10">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-brass">Visit</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-brass">Find us</p>
             <h2 id="visit" className="mt-2 font-display text-4xl">
-              Come say hi
+              {findUs?.title ?? "Visit our Lawnton studio"}
             </h2>
-            <p className="mt-4 max-w-md leading-relaxed text-bone/80">
-              Drop in for a coffee, have a dig through the antiques, or chat to the team about your next tattoo.
-            </p>
+            {findUs?.body && <p className="mt-4 max-w-md leading-relaxed text-bone/80">{findUs.body}</p>}
             <div className="mt-8">
               <BusinessDetails business={business} />
             </div>
+            <p className="mt-8">
+              <Link href="/contact-us" className="text-sm font-semibold uppercase tracking-wider text-brass hover:underline">
+                Contact details and directions →
+              </Link>
+            </p>
           </div>
           <MapEmbed business={business} className="min-h-80" />
         </div>

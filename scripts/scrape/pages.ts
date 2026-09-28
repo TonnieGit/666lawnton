@@ -5,7 +5,7 @@
 import * as cheerio from "cheerio";
 import type { ArtistItem, WixGalleryItem } from "../../lib/data/types";
 import { uuidV5 } from "../../lib/ids";
-import { getImage, mediaIdOf, toWixImageRef } from "./images";
+import { cleanAlt, getImage, mediaIdOf, toWixImageRef } from "./images";
 import { fetchText, SITE } from "./http";
 import type { SitemapEntry } from "./sitemap";
 
@@ -59,7 +59,7 @@ export async function scrapePage(url: string, html?: string): Promise<PageDraft>
     const id = mediaIdOf($(el).attr("src") ?? "");
     if (id && !ids.has(id)) {
       ids.add(id);
-      images.push({ mediaId: id, wixImage: "", alt: $(el).attr("alt") ?? "", width: 0, height: 0 });
+      images.push({ mediaId: id, wixImage: "", alt: cleanAlt($(el).attr("alt")), width: 0, height: 0 });
     }
   });
   for (const img of images) {
@@ -122,13 +122,18 @@ export async function scrapeArtists(
       const id = mediaIdOf(img.url);
       if (!id) continue;
       const info = await getImage(id);
-      if (info) gallery.push({ type: "image", src: toWixImageRef(info), title: img.title ?? "", description: "" });
+      if (info) gallery.push({ type: "image", src: toWixImageRef(info), title: cleanAlt(img.title), description: "", style: "" });
     }
     const cover = covers.get(slug);
     const coverInfo = cover ? await getImage(cover.mediaId) : null;
     const profileImage = coverInfo ? toWixImageRef(coverInfo) : (gallery[0]?.src ?? "");
 
     const prev = existing.find((a) => a.slug === slug);
+    // Keep styles/descriptions the client has filled in for images still in the gallery.
+    for (const g of gallery) {
+      const old = prev?.gallery.find((p) => p.src === g.src);
+      if (old) Object.assign(g, { style: old.style ?? "", description: old.description || g.description, title: old.title || g.title });
+    }
     artists.push({
       _id: prev?._id ?? uuidV5(`artist:${slug}`),
       _createdDate: prev?._createdDate ?? now,

@@ -1,26 +1,33 @@
-import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
 import { WixImage } from "@/components/WixImage";
 import { getSiteContent } from "@/lib/data";
+import { pageMetadata, wixOgImage } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About us",
+export const metadata = pageMetadata({
+  title: "About 666 Tattoo & Antiques | Lawnton, North Brisbane",
   description:
-    "Learn more about us at 666 Tattoos North Brisbane and Antiques in Lawnton. With decades of experience and tonnes of goth and cool antiquities.",
-  alternates: { canonical: "/about-us" },
-};
+    "Learn more about 666 Tattoo & Antiques in Lawnton, North Brisbane: decades of tattoo experience and a shop full of goth, grungy and cool antiquities.",
+  path: "/about-us",
+  image: {
+    url: wixOgImage("https://static.wixstatic.com/media/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg"),
+    width: 1200,
+    height: 630,
+    alt: "Colour hummingbird tattoo by 666 Tattoo Lawnton",
+  },
+});
 
 export default async function AboutPage() {
   const [intro, whatWeDo] = await Promise.all([getSiteContent("about-intro"), getSiteContent("about-what-we-do")]);
   const blocks = [
     { item: intro, alt: "Colour hummingbird tattoo by 666 Tattoo Lawnton" },
-    { item: whatWeDo, alt: "666 Tattoo gift certificates and Dr Pickles tattoo aftercare products" },
+    { item: whatWeDo, alt: "666 Tattoo gift certificates with tattoo aftercare products" },
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
-      <p className="text-xs uppercase tracking-[0.3em] text-brass">Learn more about</p>
-      <h1 className="mt-2 font-display text-5xl md:text-6xl">666 Tattoo &amp; Antiques</h1>
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+      <Breadcrumbs items={[{ name: "About us", href: "/about-us" }]} />
+      <h1 className="mt-6 font-display text-5xl md:text-6xl">About 666 Tattoo &amp; Antiques</h1>
 
       <div className="mt-14 space-y-20">
         {blocks.map(({ item, alt }, i) =>
@@ -52,6 +59,13 @@ export default async function AboutPage() {
             </section>
           ) : null,
         )}
+      </div>
+
+      <div className="mt-20 flex flex-wrap gap-3 border-t border-bone/10 pt-10">
+        <ButtonLink href="/tattoos">Our tattoo services</ButtonLink>
+        <ButtonLink href="/category/all-products" variant="outline">
+          Browse the antiques shop
+        </ButtonLink>
       </div>
     </div>
   );

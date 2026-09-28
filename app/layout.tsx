@@ -1,35 +1,45 @@
 import type { Metadata } from "next";
 import { preconnect } from "react-dom";
 import { Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { JsonLd } from "@/components/JsonLd";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { SITE_URL } from "@/lib/site";
+import { getBusinessInfo } from "@/lib/data";
+import { NOINDEX, SITE_URL } from "@/lib/site";
+import { localBusinessJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
+// Two families max, swap, latin subset (seo.md §B7).
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], display: "swap" });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
-const noindex = process.env.NEXT_PUBLIC_NOINDEX !== "false";
+const isProduction = process.env.VERCEL_ENV === "production" && !NOINDEX;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "666 Tattoo & Antiques | Lawnton, North Brisbane",
+    default: "Tattoo Studio & Antiques Shop in Lawnton | 666",
     template: "%s | 666 Tattoo & Antiques",
   },
-  description: "A home for our 666 Tattoos and Antiques Shop in Lawnton, North Brisbane.",
-  openGraph: { siteName: "666 Tattoo & Antiques", locale: "en_AU", type: "website" },
-  robots: noindex ? { index: false, follow: false } : undefined,
+  description:
+    "Northside Brisbane tattoo studio with 30+ years' combined experience, plus a shop of hand-picked antiques. 21/666 Gympie Rd, Lawnton. Enquire today.",
+  robots: NOINDEX ? { index: false, follow: false } : { index: true, follow: true },
+  // Google Search Console, set per environment.
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
   // All product and gallery images come from Wix's CDN.
   preconnect("https://static.wixstatic.com");
+  const business = await getBusinessInfo();
+
   return (
     <html lang="en-AU" className={`${fraunces.variable} ${inter.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
+        <JsonLd data={localBusinessJsonLd(business)} />
         <CartProvider>
           <Header />
           <main id="main" className="flex-1">
@@ -38,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <CartDrawer />
         </CartProvider>
+        {isProduction && <Analytics />}
       </body>
     </html>
   );

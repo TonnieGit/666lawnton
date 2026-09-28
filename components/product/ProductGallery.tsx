@@ -9,7 +9,8 @@ export function ProductGallery({ items, name }: { items: WixMediaItem[]; name: s
   const images = items.filter((m) => m.image);
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const alt = (m: WixMediaItem, i: number) => m.image?.altText || (i === 0 ? name : `${name}, photo ${i + 1}`);
+  // seo.md §B6: product name; gallery extras "{name}, view {n}".
+  const alt = (m: WixMediaItem, i: number) => m.image?.altText || (i === 0 ? name : `${name}, view ${i + 1}`);
 
   if (!images.length) return <div className="aspect-square bg-bone-2" />;
   const current = images[active];

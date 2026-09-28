@@ -9,6 +9,21 @@ export function MapEmbed({ business, className = "" }: { business: BusinessInfo;
   return <ClickToLoadMap business={business} query={mapsQuery(business)} className={className} />;
 }
 
+export function HoursList({ business: b }: { business: BusinessInfo }) {
+  // TODO(client): opening hours aren't published on the current site.
+  if (!b.hours.length) return <p>Hours to be confirmed. Call ahead on {b.phone}.</p>;
+  return (
+    <ul>
+      {b.hours.map((h) => (
+        <li key={h.day} className="flex justify-between gap-6">
+          <span>{h.day}</span>
+          <span>{h.open && h.close ? `${h.open}–${h.close}` : "Closed"}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function BusinessDetails({ business: b }: { business: BusinessInfo }) {
   return (
     <dl className="space-y-5">
@@ -23,14 +38,14 @@ export function BusinessDetails({ business: b }: { business: BusinessInfo }) {
             rel="noopener noreferrer"
             className="text-sm text-muted underline hover:text-bone"
           >
-            Get directions
+            Get directions to our Lawnton studio
           </a>
         </dd>
       </div>
       <div>
         <dt className="text-xs uppercase tracking-[0.2em] text-brass">Phone</dt>
         <dd className="mt-1">
-          <a href={`tel:${b.phone.replace(/\s/g, "")}`} className="hover:underline">
+          <a href={`tel:${b.phoneE164}`} className="hover:underline">
             {b.phone}
           </a>
         </dd>
@@ -43,19 +58,16 @@ export function BusinessDetails({ business: b }: { business: BusinessInfo }) {
           </a>
         </dd>
       </div>
-      {b.hours.length > 0 && (
+      <div>
+        <dt className="text-xs uppercase tracking-[0.2em] text-brass">Hours</dt>
+        <dd className="mt-1 text-sm text-bone/85">
+          <HoursList business={b} />
+        </dd>
+      </div>
+      {b.licenceNumber && (
         <div>
-          <dt className="text-xs uppercase tracking-[0.2em] text-brass">Hours</dt>
-          <dd className="mt-1">
-            <ul className="text-sm">
-              {b.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-6">
-                  <span>{h.day}</span>
-                  <span className="text-muted">{h.open && h.close ? `${h.open}–${h.close}` : "Closed"}</span>
-                </li>
-              ))}
-            </ul>
-          </dd>
+          <dt className="text-xs uppercase tracking-[0.2em] text-brass">Tattoo licence</dt>
+          <dd className="mt-1 text-sm">{b.licenceNumber}</dd>
         </div>
       )}
     </dl>
