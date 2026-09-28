@@ -1,19 +1,12 @@
 import type { BusinessInfo } from "@/lib/data/types";
+import { MapEmbed as ClickToLoadMap } from "./MapEmbed";
 
 export function mapsQuery(b: BusinessInfo) {
   return encodeURIComponent(`${b.name}, ${b.address.street}, ${b.address.suburb} ${b.address.state} ${b.address.postcode ?? ""}`);
 }
 
 export function MapEmbed({ business, className = "" }: { business: BusinessInfo; className?: string }) {
-  return (
-    <iframe
-      title={`Map showing ${business.name}, ${business.address.street}, ${business.address.suburb}`}
-      src={`https://maps.google.com/maps?q=${mapsQuery(business)}&z=15&output=embed`}
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      className={`h-full min-h-72 w-full border-0 grayscale-[60%] invert-[90%] hue-rotate-180 ${className}`}
-    />
-  );
+  return <ClickToLoadMap business={business} query={mapsQuery(business)} className={className} />;
 }
 
 export function BusinessDetails({ business: b }: { business: BusinessInfo }) {

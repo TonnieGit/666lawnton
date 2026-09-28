@@ -26,7 +26,8 @@ export default async function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-bone/10">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
+        {/* items-start: centring would nudge the image when the web font swaps in (CLS). */}
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-brass">Lawnton · North Brisbane</p>
             <h1 className="mt-4 font-display text-5xl leading-[0.95] sm:text-6xl md:text-7xl">{hero?.title}</h1>
