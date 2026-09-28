@@ -11,7 +11,7 @@ interface LoaderProps {
 }
 
 export default function wixImageLoader({ src, width, quality }: LoaderProps): string {
-  const q = quality ?? 85;
+  const q = quality ?? 80;
   const m = src.match(/^(https:\/\/static\.wixstatic\.com\/media\/[^/?#]+)(?:#(.*))?$/);
   if (!m) {
     // Local file (e.g. /mock-media/..., /logo.png): served as-is.
@@ -25,8 +25,9 @@ export default function wixImageLoader({ src, width, quality }: LoaderProps): st
     // Never upscale past the original.
     const w = Math.min(width, ow);
     const h = Math.round((w * oh) / ow);
-    return `${base}/v1/fill/w_${w},h_${h},al_c,q_${q}/file.jpg`;
+    // enc_auto: Wix serves AVIF/WebP to browsers that accept them (~50% smaller).
+    return `${base}/v1/fill/w_${w},h_${h},al_c,q_${q},enc_auto/file.jpg`;
   }
   // Unknown proportions: fit inside a tall box so the width is honoured.
-  return `${base}/v1/fit/w_${width},h_${width * 4},q_${q}/file.jpg`;
+  return `${base}/v1/fit/w_${width},h_${width * 4},q_${q},enc_auto/file.jpg`;
 }

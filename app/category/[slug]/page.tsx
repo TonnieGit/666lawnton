@@ -81,6 +81,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       </div>
 
       <div className="mt-8">
+        <h2 className="sr-only">Products</h2>
         {items.length ? (
           <ProductGrid products={items} priorityCount={4} />
         ) : (

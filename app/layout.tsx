@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preconnect } from "react-dom";
 import { Fraunces, Inter } from "next/font/google";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -24,6 +25,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  // All product and gallery images come from Wix's CDN.
+  preconnect("https://static.wixstatic.com");
   return (
     <html lang="en-AU" className={`${fraunces.variable} ${inter.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">

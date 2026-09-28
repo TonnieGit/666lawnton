@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
   images: {
     loader: "custom",
     loaderFile: "./lib/wix-image-loader.ts",
-    qualities: [75, 85],
+    qualities: [75, 80, 85],
   },
 };
 
