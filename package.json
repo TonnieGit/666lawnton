@@ -9,6 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@wix/data": "^1.0.522",
+    "@wix/ecom": "^1.0.2514",
+    "@wix/redirects": "^1.0.129",
+    "@wix/sdk": "^1.21.16",
+    "@wix/stores": "^1.0.924",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -18,9 +23,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cheerio": "^1.2.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }
