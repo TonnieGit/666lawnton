@@ -18,10 +18,13 @@ function toResolved(image: Source) {
 }
 
 /** next/image for Wix media (store images or CMS `wix:image://` refs). */
-export function WixImage({ image, alt, intrinsic, ...rest }: Props) {
+export function WixImage({ image, alt, intrinsic, priority, ...props }: Props) {
   const r = toResolved(image);
   if (!r) return null;
   const src = resolveMediaUrl(r.src, r.width, r.height);
+  // `priority` is deprecated in Next 16 and no longer raises fetch priority;
+  // LCP candidates get eager loading + high fetch priority instead.
+  const rest = priority ? { ...props, loading: "eager" as const, fetchPriority: "high" as const } : props;
   if (intrinsic && r.width && r.height) {
     return <Image src={src} alt={alt} width={r.width} height={r.height} {...rest} />;
   }

@@ -19,7 +19,7 @@ export async function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:h-20">
         <Link href="/" className="flex items-center gap-3" aria-label="666 Tattoo & Antiques, home">
           <span className="relative size-11 overflow-hidden rounded-full md:size-14">
-            <WixImage image={logo?.image} alt="" sizes="56px" priority className="object-cover" />
+            <WixImage image={logo?.image} alt="" sizes="56px" loading="eager" className="object-cover" />
           </span>
           <span className="font-display text-lg leading-tight md:text-xl">
             666 Tattoo
