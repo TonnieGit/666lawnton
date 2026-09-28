@@ -25,6 +25,7 @@ function toCart(wixCart: any): Cart {
         formatted: { price: formatPrice(full, wixCart.currency), discountedPrice: formatPrice(amount, wixCart.currency) },
       },
       image,
+      maxQuantity: li.availability?.quantityAvailable ?? undefined,
     };
   });
   const subtotal = lines.reduce((s: number, l: Cart["lines"][number]) => s + l.price.discountedPrice * l.quantity, 0);

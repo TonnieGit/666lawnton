@@ -17,7 +17,6 @@ import { scrapeProduct, type ExtractionMethod } from "./products";
 import { discover } from "./sitemap";
 
 const MOCK_DIR = path.join(process.cwd(), "data", "mock");
-const DRAFTS_DIR = path.join(MOCK_DIR, "drafts");
 
 // Route table (spec §3). Anything else is flagged in the report.
 const ROUTES: RegExp[] = [

@@ -43,8 +43,20 @@ async function buildCart(stored: StoredLine[]): Promise<Cart> {
   const byId = new Map(products.map((p) => [p._id, p]));
 
   // Drop lines whose product has gone (deleted or hidden), like Wix does.
-  const kept = stored.filter((l) => byId.has(l.productId));
-  if (kept.length !== stored.length) writeStored(kept);
+  let changed = false;
+  const kept = stored
+    .filter((l) => byId.has(l.productId))
+    .map((l) => {
+      const s = byId.get(l.productId)!.stock;
+      const max = s.trackInventory ? (s.quantity ?? 0) : Infinity;
+      if (l.quantity > max) {
+        changed = true;
+        return { ...l, quantity: max };
+      }
+      return l;
+    })
+    .filter((l) => l.quantity > 0);
+  if (changed || kept.length !== stored.length) writeStored(kept);
 
   const lines: CartLine[] = kept.map((l) => {
     const p = byId.get(l.productId)!;
@@ -57,6 +69,7 @@ async function buildCart(stored: StoredLine[]): Promise<Cart> {
       options: l.options,
       price: p.priceData,
       image: p.media.mainMedia?.image,
+      maxQuantity: p.stock.trackInventory ? (p.stock.quantity ?? 0) : undefined,
     };
   });
 

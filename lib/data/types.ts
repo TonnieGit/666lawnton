@@ -201,6 +201,8 @@ export interface CartLine {
   options: Record<string, string>;
   price: WixPriceData;
   image?: WixMediaImage;
+  /** Stock limit when inventory is tracked (one-off antiques are usually 1). */
+  maxQuantity?: number;
 }
 
 export interface Cart {

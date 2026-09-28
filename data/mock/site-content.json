@@ -3,7 +3,69 @@
     "_id": "home-hero",
     "title": "666 Tattoo & Antiques",
     "body": "A unique blend of decades of tattoo expertise, a passion for antiques and a love of great coffee - all in one place.",
+    "image": "wix:image://v1/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg#originWidth=763&originHeight=636",
     "ctaLabel": "Chat to us now",
     "ctaHref": "/contact-us"
+  },
+  {
+    "_id": "home-tattoo",
+    "title": "Tattoo",
+    "body": "Different specialty styles of tattoo with a combined expertise of over 30 years, from traditional and Japanese to fine line, blackwork and realism.",
+    "image": "wix:image://v1/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg#originWidth=576&originHeight=767",
+    "ctaLabel": "Meet our artists",
+    "ctaHref": "/portfolio"
+  },
+  {
+    "_id": "home-antiques",
+    "title": "Antiques",
+    "body": "A curated collection of hand-picked antiques that are funky, grungy and different.",
+    "image": "wix:image://v1/bfd742_d25bb5d2f1c742bfa03ce16f754987db~mv2.png/bfd742_d25bb5d2f1c742bfa03ce16f754987db~mv2.png#originWidth=1200&originHeight=1600",
+    "ctaLabel": "Browse the shop",
+    "ctaHref": "/category/all-products"
+  },
+  {
+    "_id": "home-coffee",
+    "title": "Coffee",
+    "body": "A relaxed coffee shop atmosphere and some of the best coffee on the northside of Brisbane. Grab one while you browse or wait for your appointment.",
+    "ctaLabel": "Find us",
+    "ctaHref": "/contact-us"
+  },
+  {
+    "_id": "home-artists",
+    "title": "Our tattoo artists",
+    "body": "Each of our tattoo artists specialise in different areas of tattoo, and are all based out of our Lawnton shop in Brisbane, Queensland, Australia.",
+    "ctaLabel": "See their work",
+    "ctaHref": "/portfolio"
+  },
+  {
+    "_id": "about-intro",
+    "title": "What we're about",
+    "body": "We are a unique shop for unique folks.\n\nWe offer different specialty types of tattoos with a combined expertise of over 30 years, alongside a curated collection of hand-picked antiques that are funky, grungy and different. With both of these passions, we could only top it off by adding a relaxed coffee shop atmosphere and some of the best coffee on the northside of Brisbane.",
+    "image": "wix:image://v1/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg/bfd742_401af3b46787482982b30cc42913175b~mv2.jpg#originWidth=763&originHeight=636"
+  },
+  {
+    "_id": "about-what-we-do",
+    "title": "What we do",
+    "body": "Our team are well versed in the Australian, and more specifically Queensland, tattoo industry with plenty of experience and knowledge to ensure your next tattoo is the best it can be.\n\nWe remain committed to the best experience; meaning we have a tonne of other services and products you can check out while you're in the shop. We stock gift vouchers, merchandise, the best aftercare tattoo products possible and we strive to exceed your expectations.",
+    "image": "wix:image://v1/bfd742_cade63cffca0435589800f1f75ef4c66~mv2.png/bfd742_cade63cffca0435589800f1f75ef4c66~mv2.png#originWidth=804&originHeight=861",
+    "ctaLabel": "Get in touch with us now",
+    "ctaHref": "/contact-us"
+  },
+  {
+    "_id": "portfolio-intro",
+    "title": "Our artists",
+    "body": "Here are our tattoo artists and their works. Each of our tattoo artists specialise in different areas of tattoo, and are all based out of our Lawnton shop in Brisbane, Queensland, Australia."
+  },
+  {
+    "_id": "contact-intro",
+    "title": "Get in touch with us",
+    "body": "Thanks for getting in touch with us - we will try to get back to you ASAP.",
+    "ctaLabel": "Send"
+  },
+  {
+    "_id": "site-logo",
+    "title": "666 Tattoo Lawnton",
+    "body": "",
+    "image": "wix:image://v1/bfd742_98a9fb601a3341fa8f04ed8615c53a1b~mv2.jpeg/bfd742_98a9fb601a3341fa8f04ed8615c53a1b~mv2.jpeg#originWidth=267&originHeight=267"
   }
 ]
