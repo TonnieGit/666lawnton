@@ -138,6 +138,8 @@ export interface ArtistItem {
   slug: string;
   bio: string;
   specialties: string[];
+  /** Short, as stated in the bio: "20+ years", "Since 2017", "Apprentice". Optional. */
+  experience?: string;
   profileImage: WixImageRef;
   gallery: WixGalleryItem[];
   instagram: string;

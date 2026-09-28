@@ -235,6 +235,7 @@ The About page copy and the tattoo artist portfolio are likely built directly in
   "slug": "artist-name",
   "bio": "Plain text or rich text",
   "specialties": ["Traditional", "Blackwork"],
+  "experience": "20+ years",
   "profileImage": "wix:image://v1/bfd742_xxx~mv2.jpg/file.jpg#originWidth=1000&originHeight=1000",
   "gallery": [
     { "type": "image", "src": "wix:image://v1/...", "title": "", "description": "" }
