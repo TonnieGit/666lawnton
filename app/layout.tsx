@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { preconnect } from "react-dom";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -12,9 +12,10 @@ import { NOINDEX, SITE_URL } from "@/lib/site";
 import { localBusinessJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
-// Two families max, swap, latin subset (seo.md §B7).
+// One web font (headings), swap, latin subset (seo.md §B7). Body text uses the
+// system UI font: no download, so body copy paints immediately on slow mobile
+// connections instead of re-rendering (and delaying LCP) when a font arrives.
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], display: "swap" });
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
 const isProduction = process.env.VERCEL_ENV === "production" && !NOINDEX;
 
@@ -37,7 +38,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const business = await getBusinessInfo();
 
   return (
-    <html lang="en-AU" className={`${fraunces.variable} ${inter.variable} antialiased`}>
+    <html lang="en-AU" className={`${fraunces.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={localBusinessJsonLd(business)} />
         <CartProvider>

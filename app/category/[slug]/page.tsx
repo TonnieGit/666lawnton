@@ -102,7 +102,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <div className="mt-8">
         <h2 className="sr-only">Products</h2>
         {items.length ? (
-          <ProductGrid products={items} priorityCount={4} />
+          <ProductGrid products={items} priorityCount={2} />
         ) : (
           <p className="py-16 text-center text-muted">Nothing here right now. Check back soon.</p>
         )}
