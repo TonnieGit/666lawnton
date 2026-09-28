@@ -8,12 +8,25 @@
     "ctaHref": "/contact-us"
   },
   {
+    "_id": "home-statement",
+    "title": "",
+    "body": "Every tattoo is drawn for you, from a first small script to a full sleeve. Every shelf holds something you won't find twice."
+  },
+  {
     "_id": "home-tattoo",
     "title": "Custom tattoos on Brisbane's northside",
     "body": "666 Tattoo is a working tattoo studio in Lawnton, run by artists with more than 30 years of combined experience in the Queensland tattoo industry. Every piece is drawn for you, whether it's your first small script or a full sleeve.\n\nOur artists cover a wide range of styles: bold traditional and Japanese work, realism and portraits, blackwork, stipple and fine line, and neo traditional florals. Cover-ups are a speciality. If you've got an old tattoo you've fallen out of love with, Jimmy has spent more than 20 years reworking and covering pieces just like it.\n\nWe're a short drive from Strathpine, Petrie, Kallangur and North Lakes, so it's easy to pop in, talk through your idea and see the artists' portfolios in person. We also stock tattoo gift vouchers and quality aftercare products, so you can look after your new ink from day one.",
     "image": "wix:image://v1/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg#originWidth=576&originHeight=767",
     "ctaLabel": "Explore our tattoo styles",
     "ctaHref": "/tattoos"
+  },
+  {
+    "_id": "home-feature",
+    "title": "Straight from the studio",
+    "body": "Black and grey tiger by Jimmy",
+    "image": "wix:image://v1/bfd742_d55a01d8949f4d1f962817a9401c1dcb~mv2.jpg/bfd742_d55a01d8949f4d1f962817a9401c1dcb~mv2.jpg#originWidth=1080&originHeight=1080",
+    "ctaLabel": "See Jimmy's portfolio",
+    "ctaHref": "/portfolio/jimmy"
   },
   {
     "_id": "home-antiques",

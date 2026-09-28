@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { ButtonLink, Paragraphs } from "@/components/ButtonLink";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,9 +28,11 @@ export const metadata = pageMetadata({
 });
 
 export default async function Home() {
-  const [hero, tattoo, antiques, artistsIntro, findUs, { items: latest }, artists, business] = await Promise.all([
+  const [hero, statement, tattoo, feature, antiques, artistsIntro, findUs, { items: latest }, artists, business] = await Promise.all([
     getSiteContent("home-hero"),
+    getSiteContent("home-statement"),
     getSiteContent("home-tattoo"),
+    getSiteContent("home-feature"),
     getSiteContent("home-antiques"),
     getSiteContent("home-artists"),
     getSiteContent("home-find-us"),
@@ -43,7 +46,7 @@ export default async function Home() {
       <JsonLd data={websiteJsonLd(business)} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-bone/10">
+      <section className="relative overflow-hidden">
         {/* items-start: centring would nudge the image when the web font swaps in (CLS). */}
         <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
           <div>
@@ -71,42 +74,82 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Statement: fills in as it scrolls past (globals.css .text-fill) */}
+      {statement?.body && (
+        <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 md:pb-36 md:pt-16">
+          <p className="text-fill max-w-4xl font-display text-3xl leading-[1.15] sm:text-4xl md:text-5xl">
+            <span>{statement.body}</span>
+          </p>
+        </div>
+      )}
+
       {/* Tattoos (ink), then Antiques (paper, running into the product grid below) (seo.md §B8.1) */}
       {[
         { item: tattoo, alt: "Jimmy, tattoo artist at 666 Tattoo Lawnton, at work", eyebrow: "Tattoos" },
         { item: antiques, alt: "Vintage silver measure from the 666 antiques shop", eyebrow: "Antiques" },
       ].map(({ item, alt, eyebrow }, i) =>
         item ? (
-          <section key={item._id} aria-labelledby={item._id} className={i % 2 ? "surface-light" : ""}>
-            <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-2 md:gap-16">
-              <div className={`relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink-3 ${i % 2 ? "md:order-2" : ""}`}>
-                {item.image && (
-                  <WixImage image={item.image} alt={alt} sizes="(min-width: 768px) 540px, 100vw" className="object-cover" />
-                )}
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-brass">{eyebrow}</p>
-                <h2 id={item._id} className="mt-2 font-display text-4xl leading-tight">
-                  {item.title}
-                </h2>
-                <div className="mt-6 space-y-4 leading-relaxed text-bone/85">
-                  <Paragraphs text={item.body} />
+          <Fragment key={item._id}>
+            <section aria-labelledby={item._id} className={i % 2 ? "surface-light" : ""}>
+              <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-2 md:gap-16">
+                <div className={`reveal relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink-3 ${i % 2 ? "md:order-2" : ""}`}>
+                  {item.image && (
+                    <WixImage image={item.image} alt={alt} sizes="(min-width: 768px) 540px, 100vw" className="object-cover" />
+                  )}
                 </div>
-                {item.ctaHref && (
-                  <div className="mt-8">
-                    <ButtonLink href={item.ctaHref}>{item.ctaLabel}</ButtonLink>
+                <div className="reveal">
+                  <p className="text-xs uppercase tracking-[0.3em] text-brass">{eyebrow}</p>
+                  <h2 id={item._id} className="mt-2 font-display text-4xl leading-tight">
+                    {item.title}
+                  </h2>
+                  <div className="mt-6 space-y-4 leading-relaxed text-bone/85">
+                    <Paragraphs text={item.body} />
                   </div>
-                )}
+                  {item.ctaHref && (
+                    <div className="mt-8">
+                      <ButtonLink href={item.ctaHref}>{item.ctaLabel}</ButtonLink>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+  
+            {/* Between tattoos and antiques: a pinned piece that grows as you scroll (globals.css .grow-stage) */}
+            {i === 0 && feature?.image && (
+              <section aria-labelledby="feature" className="grow-stage">
+                <div className="grow-pin flex flex-col items-center justify-center gap-6 overflow-hidden px-4 py-20">
+                  <div className="grow-media relative aspect-square w-[min(64dvh,100%)] max-w-3xl overflow-hidden rounded-3xl bg-ink-3">
+                    <WixImage
+                      image={feature.image}
+                      alt="Black and grey tiger tattoo on an upper arm, by Jimmy at 666 Tattoo Lawnton"
+                      sizes="(min-width: 768px) 64vh, 92vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="grow-caption flex w-[min(64dvh,100%)] max-w-3xl flex-wrap items-end justify-between gap-x-6 gap-y-2">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-brass">{feature.body}</p>
+                      <h2 id="feature" className="mt-1 font-display text-2xl md:text-3xl">
+                        {feature.title}
+                      </h2>
+                    </div>
+                    {feature.ctaHref && (
+                      <Link href={feature.ctaHref} className="text-sm font-semibold text-brass hover:underline">
+                        {feature.ctaLabel} →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </section>
+            )}
+          </Fragment>
         ) : null,
       )}
 
       {/* Latest antiques (on paper, so product photos read cleanly) */}
       <section aria-labelledby="latest" className="surface-light pb-24">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="reveal flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-brass">Fresh on the shelves</p>
               <h2 id="latest" className="mt-2 font-display text-4xl">
@@ -117,7 +160,7 @@ export default async function Home() {
               View all antiques →
             </Link>
           </div>
-          <div className="mt-10">
+          <div className="reveal mt-10">
             <ProductGrid products={latest} headingLevel="h3" />
           </div>
         </div>
@@ -126,7 +169,7 @@ export default async function Home() {
       {/* Artists teaser */}
       {artists.length > 0 && (
         <section aria-labelledby="artists" className="mx-auto max-w-6xl px-4 py-24">
-          <div className="max-w-2xl">
+          <div className="reveal max-w-2xl">
             <p className="text-xs uppercase tracking-[0.3em] text-brass">The studio</p>
             <h2 id="artists" className="mt-2 font-display text-4xl">
               {artistsIntro?.title}
@@ -135,7 +178,7 @@ export default async function Home() {
           </div>
           <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {artists.map((a) => (
-              <li key={a._id}>
+              <li key={a._id} className="reveal">
                 <Link href={artistPath(a.slug)} className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink-3">
                     <WixImage
@@ -164,7 +207,7 @@ export default async function Home() {
       {/* Find us */}
       <section aria-labelledby="visit" className="surface-light">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-24 md:grid-cols-2">
-          <div>
+          <div className="reveal">
             <p className="text-xs uppercase tracking-[0.3em] text-brass">Find us</p>
             <h2 id="visit" className="mt-2 font-display text-4xl">
               {findUs?.title ?? "Visit our Lawnton studio"}
@@ -179,7 +222,9 @@ export default async function Home() {
               </Link>
             </p>
           </div>
-          <MapEmbed business={business} className="min-h-80 rounded-2xl" />
+          <div className="reveal">
+            <MapEmbed business={business} className="min-h-80 rounded-2xl" />
+          </div>
         </div>
       </section>
     </>

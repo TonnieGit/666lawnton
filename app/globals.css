@@ -67,6 +67,91 @@ body {
   }
 }
 
+/*
+  Scroll motion. CSS scroll-driven animations only: no JS, off the main thread
+  in Chromium. Without support, or with reduced motion, everything below is
+  skipped and content renders static and fully visible. Never put these on
+  the LCP element (the hero).
+*/
+
+/* .reveal: fades and lifts in as it enters the viewport. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+
+/* .text-fill: a statement whose words fill from faint to full as it scrolls
+   through the viewport. The inner <span> must stay inline so its background
+   flows line by line, which gives the reading-order fill. */
+@keyframes text-fill {
+  to {
+    background-size: 100% 100%, 100% 100%;
+  }
+}
+
+/* .grow-stage: a tall section that pins its media and grows it to full size. */
+@keyframes grow-media {
+  from {
+    transform: scale(0.42);
+    filter: grayscale(1) brightness(0.7);
+  }
+}
+@keyframes grow-caption {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+
+    .text-fill {
+      view-timeline: --text-fill;
+    }
+    .text-fill > span {
+      background-image:
+        linear-gradient(var(--color-bone), var(--color-bone)),
+        linear-gradient(color-mix(in oklab, var(--color-bone) 22%, transparent), color-mix(in oklab, var(--color-bone) 22%, transparent));
+      background-repeat: no-repeat;
+      background-size: 0% 100%, 100% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-fill linear both;
+      animation-timeline: --text-fill;
+      animation-range: cover 20% cover 55%;
+    }
+
+    .grow-stage {
+      height: 240vh;
+      view-timeline: --grow;
+    }
+    .grow-stage > .grow-pin {
+      position: sticky;
+      top: 0;
+      height: 100dvh;
+    }
+    .grow-stage .grow-media {
+      animation: grow-media linear both;
+      animation-timeline: --grow;
+      animation-range: contain 0% contain 65%;
+    }
+    .grow-stage .grow-caption {
+      animation: grow-caption linear both;
+      animation-timeline: --grow;
+      animation-range: contain 55% contain 80%;
+    }
+  }
+}
+
 /* Rich text from Wix (product descriptions, info sections). */
 .prose-wix p {
   margin-bottom: 0.9em;
