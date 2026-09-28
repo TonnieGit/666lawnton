@@ -4,6 +4,54 @@
     "name": "All Products",
     "slug": "all-products",
     "visible": true,
+    "numberOfProducts": 17,
+    "description": "",
+    "media": {
+      "mainMedia": null,
+      "items": []
+    }
+  },
+  {
+    "_id": "f61a0286-159b-4f67-9382-7248e39e0e33",
+    "name": "Dolls",
+    "slug": "dolls",
+    "visible": true,
+    "numberOfProducts": 1,
+    "description": "",
+    "media": {
+      "mainMedia": null,
+      "items": []
+    }
+  },
+  {
+    "_id": "aec1fa93-b936-4ac1-86b1-731039062b4c",
+    "name": "Fine Art Ceramics",
+    "slug": "fine-art-ceramics",
+    "visible": true,
+    "numberOfProducts": 11,
+    "description": "",
+    "media": {
+      "mainMedia": null,
+      "items": []
+    }
+  },
+  {
+    "_id": "d3645078-0ba6-4c0b-9c22-4222599aa465",
+    "name": "Kitchen Decor",
+    "slug": "kitchen-decor",
+    "visible": true,
+    "numberOfProducts": 1,
+    "description": "",
+    "media": {
+      "mainMedia": null,
+      "items": []
+    }
+  },
+  {
+    "_id": "e82f8ff5-3e26-487c-9826-5021a2eb9b9c",
+    "name": "Musical Instruments",
+    "slug": "musical-instruments",
+    "visible": true,
     "numberOfProducts": 1,
     "description": "",
     "media": {

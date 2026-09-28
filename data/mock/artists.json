@@ -1,1 +1,576 @@
-[]
+[
+  {
+    "_id": "efc7027c-80bc-575a-9797-409a80cc3e82",
+    "_createdDate": "2026-09-28T02:12:46.498Z",
+    "_updatedDate": "2026-09-28T02:12:46.498Z",
+    "title": "Jimmy",
+    "slug": "jimmy",
+    "bio": "Jimmy has been tattooing for over 20 years. He specialises in a variety of styles, including traditional, Japanese, realism and cover up tattoos. He is based in Lawnton or Brisbane, Queensland, Australia.",
+    "specialties": [
+      "Traditional",
+      "Japanese",
+      "Realism",
+      "Cover Up"
+    ],
+    "profileImage": "wix:image://v1/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg/bfd742_6e4f4b1434c9431483dc39d9d14c8c06~mv2.jpg#originWidth=576&originHeight=767",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_bfbe1a0f037e42abb114d98473b74228~mv2.jpg/bfd742_bfbe1a0f037e42abb114d98473b74228~mv2.jpg#originWidth=400&originHeight=266",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_b29bcc41a8aa454697dba878a7901353~mv2.jpg/bfd742_b29bcc41a8aa454697dba878a7901353~mv2.jpg#originWidth=482&originHeight=724",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_d1028e5515384bd5942e7295c024b665~mv2.jpg/bfd742_d1028e5515384bd5942e7295c024b665~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_cc832d55e0aa40c69ea9837a2c353435~mv2.jpeg/bfd742_cc832d55e0aa40c69ea9837a2c353435~mv2.jpeg#originWidth=640&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_96529bc120a14ef19d9ae2e0e0812a95~mv2.png/bfd742_96529bc120a14ef19d9ae2e0e0812a95~mv2.png#originWidth=517&originHeight=572",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_313cbaf80bfa427088bfe7641c1f1bd9~mv2.jpeg/bfd742_313cbaf80bfa427088bfe7641c1f1bd9~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_61ecc1f349984aa08afdb76abd0d78de~mv2.jpeg/bfd742_61ecc1f349984aa08afdb76abd0d78de~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_7020ca04e2234397b01fa544e183e771~mv2.jpeg/bfd742_7020ca04e2234397b01fa544e183e771~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_c50534342e274ecdbcdfb9ce8dd1b013~mv2.jpeg/bfd742_c50534342e274ecdbcdfb9ce8dd1b013~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_5d31ce0b8b744e6386981b10eb605081~mv2.jpeg/bfd742_5d31ce0b8b744e6386981b10eb605081~mv2.jpeg#originWidth=280&originHeight=374",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_9b6ab4d266d7489cad4a35ba5eafcfde~mv2.jpeg/bfd742_9b6ab4d266d7489cad4a35ba5eafcfde~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_f866d9c793d14288af005f905583fee8~mv2.jpeg/bfd742_f866d9c793d14288af005f905583fee8~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_59627cca401842e695c77556e7e67495~mv2.jpg/bfd742_59627cca401842e695c77556e7e67495~mv2.jpg#originWidth=546&originHeight=754",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_43ade6a867414db3808acdc9b1a03f87~mv2.jpg/bfd742_43ade6a867414db3808acdc9b1a03f87~mv2.jpg#originWidth=482&originHeight=715",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_23ba2029f6af4229ad033d57443cfc87~mv2.jpeg/bfd742_23ba2029f6af4229ad033d57443cfc87~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_3211a40a6bc14c23a4ccb684c68b95d7~mv2.jpeg/bfd742_3211a40a6bc14c23a4ccb684c68b95d7~mv2.jpeg#originWidth=640&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_280d90e49c3f4850ab7fcd0bbbec051e~mv2.jpg/bfd742_280d90e49c3f4850ab7fcd0bbbec051e~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_d55a01d8949f4d1f962817a9401c1dcb~mv2.jpg/bfd742_d55a01d8949f4d1f962817a9401c1dcb~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_183917daaa914f10a12fa93acb3a8783~mv2.jpg/bfd742_183917daaa914f10a12fa93acb3a8783~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_4c4f39d966124dd09a536354cd4b963b~mv2.jpg/bfd742_4c4f39d966124dd09a536354cd4b963b~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_53599390c66741cb953cdc87de2af218~mv2.jpg/bfd742_53599390c66741cb953cdc87de2af218~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_51a5133483734990bf5477f6046e073b~mv2.jpg/bfd742_51a5133483734990bf5477f6046e073b~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_92499fba9ef741a482c6f8ef93e95184~mv2.jpg/bfd742_92499fba9ef741a482c6f8ef93e95184~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_c7fe496a50864748a2b9151e287b75ee~mv2.jpg/bfd742_c7fe496a50864748a2b9151e287b75ee~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_62f29f3d937b43cdb9e87d7042ba6aca~mv2.jpg/bfd742_62f29f3d937b43cdb9e87d7042ba6aca~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_f547cb62641b4b9b82e0dae07e6893e3~mv2.jpg/bfd742_f547cb62641b4b9b82e0dae07e6893e3~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_15a38d688000468d9fae8acd07f6e9c1~mv2.jpg/bfd742_15a38d688000468d9fae8acd07f6e9c1~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_6bdce0d55801497686f4c178ef22fb8a~mv2.jpg/bfd742_6bdce0d55801497686f4c178ef22fb8a~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_a6ba5f9aabd844b5b3e7e1a6c06c7a9f~mv2.jpeg/bfd742_a6ba5f9aabd844b5b3e7e1a6c06c7a9f~mv2.jpeg#originWidth=640&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_6a7de981727a4a5ca2940897a00cb529~mv2.jpeg/bfd742_6a7de981727a4a5ca2940897a00cb529~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_71d4b0a2e8ad4b2ba568a027e9c7050e~mv2.jpg/bfd742_71d4b0a2e8ad4b2ba568a027e9c7050e~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_f8db27f7ea224f3db555290c2f747225~mv2.jpg/bfd742_f8db27f7ea224f3db555290c2f747225~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_6ae15783e0ea470199515f17befa5764~mv2.jpg/bfd742_6ae15783e0ea470199515f17befa5764~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_dc4d0cddae9a4c85bb0264ee547ba21f~mv2.jpeg/bfd742_dc4d0cddae9a4c85bb0264ee547ba21f~mv2.jpeg#originWidth=409&originHeight=545",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_330d6eb6616c49419b1b21778d05fd2d~mv2.jpg/bfd742_330d6eb6616c49419b1b21778d05fd2d~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_e1a2d15876044b53ab0fe158dab40e81~mv2.jpg/bfd742_e1a2d15876044b53ab0fe158dab40e81~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_61045ce0c43c45c5bed7a108d8d11429~mv2.jpg/bfd742_61045ce0c43c45c5bed7a108d8d11429~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_63e206324c2244aba87a45564a8f77d5~mv2.jpg/bfd742_63e206324c2244aba87a45564a8f77d5~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_5ec28d67327b427c9189877a2068f376~mv2.jpg/bfd742_5ec28d67327b427c9189877a2068f376~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_aaad65534ba24ffb8358c2e2027ae6ce~mv2.jpeg/bfd742_aaad65534ba24ffb8358c2e2027ae6ce~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_932f98caf4c24b40b35037859f64d6f3~mv2.jpg/bfd742_932f98caf4c24b40b35037859f64d6f3~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_95291de434b24a96907a6d2d45dab8de~mv2.jpg/bfd742_95291de434b24a96907a6d2d45dab8de~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_5ecddf5d6a1a459a8a2e3fa5d0dadafc~mv2.jpg/bfd742_5ecddf5d6a1a459a8a2e3fa5d0dadafc~mv2.jpg#originWidth=960&originHeight=960",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_0f63623849884be181c08ddcec8056d4~mv2.jpg/bfd742_0f63623849884be181c08ddcec8056d4~mv2.jpg#originWidth=960&originHeight=960",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_2e6dba14bb7e4d10b6b92c90c7827acd~mv2.jpg/bfd742_2e6dba14bb7e4d10b6b92c90c7827acd~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_c0e1f31358ae4b10a7278b5d9b7dde40~mv2.jpg/bfd742_c0e1f31358ae4b10a7278b5d9b7dde40~mv2.jpg#originWidth=428&originHeight=428",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_ba3120ec890745c180dfdbf7a56bc87c~mv2.jpg/bfd742_ba3120ec890745c180dfdbf7a56bc87c~mv2.jpg#originWidth=362&originHeight=501",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_29e494755ec14eadacc220e61073afdb~mv2.jpg/bfd742_29e494755ec14eadacc220e61073afdb~mv2.jpg#originWidth=699&originHeight=856",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_70a583576da247ae94a02cf3117611e2~mv2.jpg/bfd742_70a583576da247ae94a02cf3117611e2~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_4f2185c536b143668cb8c24745b2b607~mv2.jpeg/bfd742_4f2185c536b143668cb8c24745b2b607~mv2.jpeg#originWidth=768&originHeight=623",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_aa7536747ee3436394e328c832989278~mv2.jpg/bfd742_aa7536747ee3436394e328c832989278~mv2.jpg#originWidth=1023&originHeight=767",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_dce8c9fa66e14f17bdaeacc7eecd8e1e~mv2.jpg/bfd742_dce8c9fa66e14f17bdaeacc7eecd8e1e~mv2.jpg#originWidth=400&originHeight=500",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_701fb2c010b14606aa423d029c6312e9~mv2.jpg/bfd742_701fb2c010b14606aa423d029c6312e9~mv2.jpg#originWidth=400&originHeight=266",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_ebfd8eaa86c5434b9977391c599aa794~mv2.jpg/bfd742_ebfd8eaa86c5434b9977391c599aa794~mv2.jpg#originWidth=482&originHeight=625",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_249946149b3e4299b53c39ba09d168a8~mv2.jpg/bfd742_249946149b3e4299b53c39ba09d168a8~mv2.jpg#originWidth=720&originHeight=960",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_472cd8a3f54042d6b936e7a5f6ac5318~mv2.jpg/bfd742_472cd8a3f54042d6b936e7a5f6ac5318~mv2.jpg#originWidth=800&originHeight=800",
+        "title": "",
+        "description": ""
+      }
+    ],
+    "instagram": "",
+    "bookingUrl": "",
+    "sortOrder": 1
+  },
+  {
+    "_id": "093ca5b5-65f8-5531-9d5c-281bc9e5be27",
+    "_createdDate": "2026-09-28T02:12:46.498Z",
+    "_updatedDate": "2026-09-28T02:12:46.498Z",
+    "title": "Jeff",
+    "slug": "jeff",
+    "bio": "Jeff/Jeffrey has been tattooing since 2017 and specialises in Blackwork, Fine Line, Stipple, Realism and Portraits tattoos. He works for 666 Tattoo in Lawnton or Brisbane, Queensland, Australia.",
+    "specialties": [
+      "Blackwork",
+      "Fine Line",
+      "Stipple",
+      "Realism",
+      "Portraits"
+    ],
+    "profileImage": "wix:image://v1/bfd742_82fbeb83a12043ae86e83f4186fd6614~mv2.jpeg/bfd742_82fbeb83a12043ae86e83f4186fd6614~mv2.jpeg#originWidth=452&originHeight=804",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_1c9d293d43e14fed9c248bcba4c04d5a~mv2.jpeg/bfd742_1c9d293d43e14fed9c248bcba4c04d5a~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_27057eba9cb744c5bf1b33a410d46049~mv2.jpeg/bfd742_27057eba9cb744c5bf1b33a410d46049~mv2.jpeg#originWidth=480&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_8ea08483bee94ce4bf7f1465df3dbd26~mv2.jpeg/bfd742_8ea08483bee94ce4bf7f1465df3dbd26~mv2.jpeg#originWidth=386&originHeight=514",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_5b061a7439b24e8599f3546bda499f78~mv2.jpeg/bfd742_5b061a7439b24e8599f3546bda499f78~mv2.jpeg#originWidth=480&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_e57fceba48a44ad792324bab62d578af~mv2.jpg/bfd742_e57fceba48a44ad792324bab62d578af~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_11a400efdaae4765860f09298fea92f4~mv2.jpg/bfd742_11a400efdaae4765860f09298fea92f4~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_afd1d0016d884d1897c0b6c23aaee8af~mv2.jpeg/bfd742_afd1d0016d884d1897c0b6c23aaee8af~mv2.jpeg#originWidth=526&originHeight=635",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_a0f588aee58244fcaabe058b40f9793a~mv2.jpeg/bfd742_a0f588aee58244fcaabe058b40f9793a~mv2.jpeg#originWidth=307&originHeight=409",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_4373af047e174317a0b5b91e842743e8~mv2.jpg/bfd742_4373af047e174317a0b5b91e842743e8~mv2.jpg#originWidth=1080&originHeight=1080",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_ee554cd55d0c48609f76f3b3e5fcc80c~mv2.jpeg/bfd742_ee554cd55d0c48609f76f3b3e5fcc80c~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_077f665d98834af8af5b41e2c9d6933d~mv2.jpeg/bfd742_077f665d98834af8af5b41e2c9d6933d~mv2.jpeg#originWidth=362&originHeight=482",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_7c1fe85e907a47a4b6da7d748041c229~mv2.jpeg/bfd742_7c1fe85e907a47a4b6da7d748041c229~mv2.jpeg#originWidth=480&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_9480e96c9e06404082a248c2cfa8833c~mv2.jpeg/bfd742_9480e96c9e06404082a248c2cfa8833c~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_64d5193f23774953ada17bcadabe92a3~mv2.jpeg/bfd742_64d5193f23774953ada17bcadabe92a3~mv2.jpeg#originWidth=565&originHeight=753",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_df7afc5797d5485fb174efcd0b30fa2d~mv2.jpeg/bfd742_df7afc5797d5485fb174efcd0b30fa2d~mv2.jpeg#originWidth=480&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_49aa36de26be47a98866794817b509bd~mv2.jpeg/bfd742_49aa36de26be47a98866794817b509bd~mv2.jpeg#originWidth=480&originHeight=640",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_41179df4abad40e4aeac9021bf06d460~mv2.jpeg/bfd742_41179df4abad40e4aeac9021bf06d460~mv2.jpeg#originWidth=280&originHeight=373",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_bb7340bf42884e99a3d2c5f3c4fbecfd~mv2.jpeg/bfd742_bb7340bf42884e99a3d2c5f3c4fbecfd~mv2.jpeg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      }
+    ],
+    "instagram": "",
+    "bookingUrl": "",
+    "sortOrder": 2
+  },
+  {
+    "_id": "97459f9f-cca1-5ced-b09c-fb5506515417",
+    "_createdDate": "2026-09-28T02:12:46.498Z",
+    "_updatedDate": "2026-09-28T02:12:46.498Z",
+    "title": "Lindsay",
+    "slug": "lindsay",
+    "bio": "Lindsay is our first year apprentice specialising in neo traditional, florals, fine line, and black work. She works at 666 Tattoo in Lawnton or Brisbane, Queensland, Australia.",
+    "specialties": [
+      "Neo Traditional",
+      "Florals",
+      "Fine Line",
+      "Black Work"
+    ],
+    "profileImage": "wix:image://v1/bfd742_16adff9da16a4a32a9ad91c48e9025ea~mv2.jpg/bfd742_16adff9da16a4a32a9ad91c48e9025ea~mv2.jpg#originWidth=600&originHeight=800",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_c1ffd944e42a4ea7bdca192e958a6a0f~mv2.jpg/bfd742_c1ffd944e42a4ea7bdca192e958a6a0f~mv2.jpg#originWidth=370&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_16b585ae299f4ef9a4e8fae7d0351490~mv2.jpg/bfd742_16b585ae299f4ef9a4e8fae7d0351490~mv2.jpg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_52d56d9a9a7546c49c9e8a9188b43665~mv2.jpg/bfd742_52d56d9a9a7546c49c9e8a9188b43665~mv2.jpg#originWidth=599&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_084f0cca875248b28e37aed786cd2099~mv2.jpg/bfd742_084f0cca875248b28e37aed786cd2099~mv2.jpg#originWidth=599&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_93debd292e8c44ca8beae7c460ac3b70~mv2.jpg/bfd742_93debd292e8c44ca8beae7c460ac3b70~mv2.jpg#originWidth=599&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_2a0f30823eee45cd86554277e9c235fc~mv2.jpg/bfd742_2a0f30823eee45cd86554277e9c235fc~mv2.jpg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_e39b21a7b2d24bc79874a2bf2e344360~mv2.jpg/bfd742_e39b21a7b2d24bc79874a2bf2e344360~mv2.jpg#originWidth=600&originHeight=800",
+        "title": "",
+        "description": ""
+      }
+    ],
+    "instagram": "",
+    "bookingUrl": "",
+    "sortOrder": 3
+  },
+  {
+    "_id": "572edbac-fa82-565c-a9d6-ace28757987e",
+    "_createdDate": "2026-09-28T02:12:46.498Z",
+    "_updatedDate": "2026-09-28T02:12:46.498Z",
+    "title": "Melanie",
+    "slug": "melanie",
+    "bio": "Melanie is a tattoo artist at 666 Tattoo in Lawnton or Brisbane, Queensland, Australia.",
+    "specialties": [],
+    "profileImage": "wix:image://v1/bfd742_be3068615abd47ce9368ee63ae0992be~mv2.jpeg/bfd742_be3068615abd47ce9368ee63ae0992be~mv2.jpeg#originWidth=280&originHeight=338",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_f59ab371773f4068903192cfec7a4a28~mv2.jpeg/bfd742_f59ab371773f4068903192cfec7a4a28~mv2.jpeg#originWidth=280&originHeight=307",
+        "title": "",
+        "description": ""
+      },
+      {
+        "type": "image",
+        "src": "wix:image://v1/bfd742_4c582f4ed20442a4abe347b7e980ec18~mv2.jpeg/bfd742_4c582f4ed20442a4abe347b7e980ec18~mv2.jpeg#originWidth=280&originHeight=333",
+        "title": "",
+        "description": ""
+      }
+    ],
+    "instagram": "",
+    "bookingUrl": "",
+    "sortOrder": 4
+  }
+]

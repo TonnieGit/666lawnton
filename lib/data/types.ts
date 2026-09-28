@@ -99,6 +99,7 @@ export interface WixProduct {
   collectionIds: string[];
   productPageUrl: { base: string; path: string };
   numericId: string;
+  seoData?: { tags: { type: string; props?: Record<string, string>; children?: string }[] };
   lastUpdated: string;
   _createdDate: string;
 }
@@ -172,7 +173,7 @@ export interface BusinessInfo {
     country: string;
   };
   hours: BusinessHours[];
-  socials: { facebook: string; instagram: string };
+  socials: { facebook: string; instagram: string; tiktok?: string };
 }
 
 // ---------- App-level types ----------
